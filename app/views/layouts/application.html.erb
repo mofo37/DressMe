@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DressMe</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1><%= link_to 'DressMe', root_path %></h1>
+    <%= link_to "Pieces", pieces_path %>
+    <%= link_to "Outfits", outfits_path %>
+    <%= link_to "Photos", photos_path %>
+    <%= yield %>
+  </body>
+</html>
