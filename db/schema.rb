@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_12_222606) do
+ActiveRecord::Schema.define(version: 2018_12_17_044531) do
 
   create_table "outfits", force: :cascade do |t|
     t.string "name"
@@ -36,11 +36,18 @@ ActiveRecord::Schema.define(version: 2018_12_12_222606) do
 
   create_table "stylings", force: :cascade do |t|
     t.integer "outfit_id"
-    t.integer "pieces_id"
+    t.integer "piece_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["outfit_id"], name: "index_stylings_on_outfit_id"
-    t.index ["pieces_id"], name: "index_stylings_on_pieces_id"
+    t.index ["piece_id"], name: "index_stylings_on_piece_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
