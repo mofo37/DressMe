@@ -24,7 +24,7 @@ class PiecesController < ApplicationController
   # POST /pieces
   # POST /pieces.json
   def create
-    @piece = Piece.new(piece_params)
+    @piece = current_user.pieces.new(piece_params)
 
     respond_to do |format|
       if @piece.save
@@ -64,7 +64,7 @@ class PiecesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_piece
-      @piece = Piece.find(params[:id])
+      @piece = current_user.pieces.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
