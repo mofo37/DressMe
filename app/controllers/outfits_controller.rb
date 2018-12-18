@@ -4,7 +4,7 @@ class OutfitsController < ApplicationController
   # GET /outfits
   # GET /outfits.json
   def index
-    @outfits = Outfit.all
+    @outfits = current_user.outfits
   end
 
   # GET /outfits/1
@@ -24,7 +24,7 @@ class OutfitsController < ApplicationController
   # POST /outfits
   # POST /outfits.json
   def create
-    @outfit = Outfit.new(outfit_params)
+    @outfit = current_user.outfits.new(outfit_params)
 
     respond_to do |format|
       if @outfit.save
@@ -64,7 +64,7 @@ class OutfitsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_outfit
-      @outfit = Outfit.find(params[:id])
+      @outfit = current_user.outfits.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
