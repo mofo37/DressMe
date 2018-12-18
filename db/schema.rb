@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2018_12_17_223102) do
     t.boolean "work"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 2018_12_17_223102) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "stylings", force: :cascade do |t|
