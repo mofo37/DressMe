@@ -25,12 +25,11 @@
             <button type="button" class="btn btn-primary"><%= link_to "Photos", photos_path %></button>
           </div>
       <% else %>
-        <div class="jumbotron">
-          <h1 class="display-4"><%= link_to "DressMe", root_path %></h1>
-          <p class="lead">What would you like to wear today?</p>
-          <hr class="my-4">
-          <button type="button" class="btn btn-primary"><%= link_to "Sign Up", signup_path %></button>
-          <button type="button" class="btn btn-primary"><%= link_to "Log In", login_path %></button>
+        <div class="my-5 text-center">
+          <h1><%= link_to_unless_current "DressMe", root_path %></h1>
+          <p>What would you like to wear today?</p>
+          <%= link_to "Sign Up", signup_path, class: "btn btn-primary" %>
+          <%= link_to "Sign In", login_path, class: "btn btn-primary" %>
         </div>
       <% end %>
       <%= yield %>
