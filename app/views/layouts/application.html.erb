@@ -8,39 +8,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <%= stylesheet_link_tag    'application', media: 'all'%>
-    <%= javascript_include_tag 'application'%>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
   </head>
 
   <body>
-  <% if current_user %>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
-  <div class="container">
-    <b><%= link_to_unless_current "DressMe", root_path %></b>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= link_to "Pieces", pieces_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Outfits", outfits_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Photos", photos_path, class: "nav-link" %>
-      </li>
-    </ul>
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <%= link_to "Log Out", logout_path, class: "nav-link" %>
-      </li>
-    </ul>
-  </div>
-  </div>
-</nav>
-<%end%>
+    <%= render "layouts/nav" %>
     <div class="container">
       <%= yield %>
     </div>
