@@ -16,6 +16,13 @@
     <% @outfits.each do |outfit| %>
       <tr>
         <td><%= outfit.name %></td>
+        <td>
+          <% outfit.photos.each do |photo| %>
+            <div>
+              <%= image_tag(photo.url)  %>
+            </div>
+          <% end %>
+        </td>
         <td><%= outfit.formality %></td>
         <td><%= outfit.work %></td>
         <td><%= link_to 'Show', outfit %></td>
