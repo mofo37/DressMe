@@ -6,6 +6,16 @@
 </p>
 
 <p>
+  <strong>URL:</strong>
+  <% @outfit.photos.each do |photo| %>
+    <div>
+      <%= image_tag(photo.url)  %>
+    </div>
+  <% end %>
+</p>
+
+
+<p>
   <strong>Formality:</strong>
   <%= @outfit.formality %>
 </p>
