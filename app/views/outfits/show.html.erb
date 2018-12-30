@@ -6,10 +6,11 @@
 </p>
 
 <p>
-  <strong>URL:</strong>
+  <strong>Image:</strong>
   <% @outfit.photos.each do |photo| %>
     <div>
-      <%= image_tag(photo.url)  %>
+      <%= image_tag(photo.url) if photo.url.present? %>
+      <%#= image_tag(url_for photo.image) if photo.image.present? %>
     </div>
   <% end %>
 </p>

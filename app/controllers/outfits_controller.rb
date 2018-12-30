@@ -24,10 +24,16 @@ class OutfitsController < ApplicationController
   # POST /outfits
   # POST /outfits.json
   def create
-    @outfit = current_user.outfits.new(outfit_params)
+    # TODO HACK TEMP because the fields_for and nested attributes isn't doing the right thing. File upload not working yet.
+    photo = current_user.photos.create(outfit_params["photos_attributes"])
+    outfit_params_hash = outfit_params.reject{|k,v| k == "photos_attributes"}
+
+    @outfit = current_user.outfits.new(outfit_params_hash)
 
     respond_to do |format|
       if @outfit.save
+        # TODO TEMP HACK this line can get deleted when above hack gets resolved.
+        @outfit.photos << photo
         format.html { redirect_to @outfit, notice: 'Outfit was successfully created.' }
         format.json { render :show, status: :created, location: @outfit }
       else
@@ -69,6 +75,6 @@ class OutfitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def outfit_params
-      params.require(:outfit).permit(:name, :formality, :work)
+      params.require(:outfit).permit(:name, :formality, :work, photos_attributes: [:id, :url])
     end
 end
