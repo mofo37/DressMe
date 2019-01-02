@@ -18,9 +18,9 @@
       <tr>
         <td><%= outfit.name %></td>
         <td>
-          <% outfit.photos.each do |photo| %>
+          <% outfit.outfit_photos.each do |outfit_photo| %>
             <div>
-              <%= image_tag(photo.url)  %>
+              <%= image_tag(outfit_photo.url)  %>
             </div>
           <% end %>
         </td>

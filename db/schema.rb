@@ -37,8 +37,10 @@ ActiveRecord::Schema.define(version: 2019_01_02_010523) do
     t.string "url"
     t.boolean "front"
     t.boolean "back"
+    t.integer "outfit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["outfit_id"], name: "index_outfit_photos_on_outfit_id"
   end
 
   create_table "outfits", force: :cascade do |t|
@@ -54,8 +56,10 @@ ActiveRecord::Schema.define(version: 2019_01_02_010523) do
     t.string "url"
     t.boolean "front"
     t.boolean "back"
+    t.integer "piece_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["piece_id"], name: "index_piece_photos_on_piece_id"
   end
 
   create_table "pieces", force: :cascade do |t|

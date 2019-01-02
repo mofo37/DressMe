@@ -15,6 +15,7 @@ class OutfitsController < ApplicationController
   # GET /outfits/new
   def new
     @outfit = Outfit.new
+    @outfit.outfit_photos.new
   end
 
   # GET /outfits/1/edit
@@ -29,7 +30,7 @@ class OutfitsController < ApplicationController
     # outfit_params_hash = outfit_params.reject{|k,v| k == "photos_attributes"}
 
     @outfit = current_user.outfits.new(outfit_params)
-
+    
     respond_to do |format|
       if @outfit.save
         # TODO TEMP HACK this line can get deleted when above hack gets resolved.

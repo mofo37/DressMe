@@ -7,10 +7,9 @@
 
 <p>
   <strong>Image:</strong>
-  <% @outfit.photos.each do |photo| %>
+  <% @outfit.outfit_photos.each do |outfit_photo| %>
     <div>
-      <%= image_tag(photo.url) if photo.url.present? %>
-      <%#= image_tag(url_for photo.image) if photo.image.present? %>
+      <%= image_tag(outfit_photo.url) if outfit_photo.url.present? %>
     </div>
   <% end %>
 </p>

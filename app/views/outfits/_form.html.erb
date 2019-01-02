@@ -16,14 +16,10 @@
     <%= form.text_field :name %>
   </div>
 
-  <%= form.fields_for @outfit.photos.new do |f| %>
+  <%= form.fields_for :outfit_photos do |f| %>
     <div class="field">
       <%= f.label :url %>
       <%= f.text_field :url %>
-    </div>
-    <div class="field">
-      <%= f.label :image %>
-      <%= f.file_field :image %>
     </div>
     <div class="field">
       <%= f.label :front %>

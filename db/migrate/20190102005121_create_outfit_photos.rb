@@ -4,6 +4,7 @@ class CreateOutfitPhotos < ActiveRecord::Migration[5.2]
       t.string :url
       t.boolean :front
       t.boolean :back
+      t.references :outfit
 
       t.timestamps
     end
