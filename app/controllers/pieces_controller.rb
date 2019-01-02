@@ -26,6 +26,7 @@ class PiecesController < ApplicationController
   # POST /pieces.json
   def create
     @piece = current_user.pieces.new(piece_params)
+    @piece.image.attach(piece_params[:image])
 
     respond_to do |format|
       if @piece.save
@@ -41,6 +42,9 @@ class PiecesController < ApplicationController
   # PATCH/PUT /pieces/1
   # PATCH/PUT /pieces/1.json
   def update
+
+    @piece.image.attach(piece_params[:image])
+
     respond_to do |format|
       if @piece.update(piece_params)
         format.html { redirect_to @piece, notice: 'Piece was successfully updated.' }
@@ -70,6 +74,6 @@ class PiecesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def piece_params
-      params.require(:piece).permit(:name, piece_photos_attributes: [:url, :front, :back])
+      params.require(:piece).permit(:name, :image, piece_photos_attributes: [:url, :front, :back])
     end
 end

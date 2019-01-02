@@ -6,12 +6,17 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
+  <strong>URL:</strong>
   <% @piece.piece_photos.each do |piece_photo| %>
     <div>
       <%= image_tag(piece_photo.url) if piece_photo.url.present? %>
     </div>
   <% end %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(url_for @piece.image) %>
 </p>
 
 <%= link_to 'Edit', edit_piece_path(@piece) %> |

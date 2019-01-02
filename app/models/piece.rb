@@ -6,4 +6,5 @@ class Piece < ApplicationRecord
   has_many :piece_photos
 
   accepts_nested_attributes_for :piece_photos
+  has_one_attached :image
 end
