@@ -16,7 +16,7 @@
     <%= form.text_field :name %>
   </div>
 
-  <%= form.fields_for :photos_attributes do |f| %>
+  <%= form.fields_for @outfit.photos.new do |f| %>
     <div class="field">
       <%= f.label :url %>
       <%= f.text_field :url %>

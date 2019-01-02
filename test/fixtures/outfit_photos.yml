@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyString
+  front: false
+  back: false
+
+two:
+  url: MyString
+  front: false
+  back: false

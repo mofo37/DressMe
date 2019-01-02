@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_21_203250) do
+ActiveRecord::Schema.define(version: 2019_01_02_010523) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 2018_12_21_203250) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "outfit_photos", force: :cascade do |t|
+    t.string "url"
+    t.boolean "front"
+    t.boolean "back"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "outfits", force: :cascade do |t|
     t.string "name"
     t.integer "formality"
@@ -42,15 +50,12 @@ ActiveRecord::Schema.define(version: 2018_12_21_203250) do
     t.integer "user_id"
   end
 
-  create_table "photos", force: :cascade do |t|
+  create_table "piece_photos", force: :cascade do |t|
     t.string "url"
     t.boolean "front"
     t.boolean "back"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.string "imageable_type"
-    t.integer "imageable_id"
   end
 
   create_table "pieces", force: :cascade do |t|

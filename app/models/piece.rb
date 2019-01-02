@@ -3,5 +3,5 @@ class Piece < ApplicationRecord
 
   has_many :stylings
   has_many :outfits, through: :stylings
-  has_many :photos, as: :imageable
+  has_many :piece_photos
 end
