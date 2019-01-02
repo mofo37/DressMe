@@ -5,5 +5,14 @@
   <%= @piece.name %>
 </p>
 
+<p>
+  <strong>Image:</strong>
+  <% @piece.piece_photos.each do |piece_photo| %>
+    <div>
+      <%= image_tag(piece_photo.url) if piece_photo.url.present? %>
+    </div>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_piece_path(@piece) %> |
 <%= link_to 'Back', pieces_path %>

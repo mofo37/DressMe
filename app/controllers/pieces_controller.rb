@@ -15,6 +15,7 @@ class PiecesController < ApplicationController
   # GET /pieces/new
   def new
     @piece = Piece.new
+    @piece.piece_photos.new
   end
 
   # GET /pieces/1/edit
@@ -69,6 +70,6 @@ class PiecesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def piece_params
-      params.require(:piece).permit(:name)
+      params.require(:piece).permit(:name, piece_photos_attributes: [:url, :front, :back])
     end
 end

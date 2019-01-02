@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Photo</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,13 @@
     <% @pieces.each do |piece| %>
       <tr>
         <td><%= piece.name %></td>
+        <td>
+          <% piece.piece_photos.each do |piece_photo| %>
+            <div>
+              <%= image_tag(piece_photo.url)  %>
+            </div>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', piece %></td>
         <td><%= link_to 'Edit', edit_piece_path(piece) %></td>
         <td><%= link_to 'Destroy', piece, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -16,6 +16,21 @@
     <%= form.text_field :name %>
   </div>
 
+    <%= form.fields_for :piece_photos do |f| %>
+    <div class="field">
+      <%= f.label :url %>
+      <%= f.text_field :url %>
+    </div>
+    <div class="field">
+      <%= f.label :front %>
+      <%= f.check_box :front %>
+    </div>
+    <div class="field">
+      <%= f.label :back %>
+      <%= f.check_box :back %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>
