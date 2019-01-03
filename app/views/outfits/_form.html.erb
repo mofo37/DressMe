@@ -11,37 +11,41 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
   <%= form.fields_for :outfit_photos do |f| %>
-    <div class="field">
-      <%= f.label :url %>
-      <%= f.text_field :url %>
+    <div class="form-group">
+      <%= f.label :url, "URL" %>
+      <%= f.url_field :url, class: "form-control" %>
     </div>
-    <div class="field">
-      <%= f.label :front %>
-      <%= f.check_box :front %>
+
+    <div class="form-check">
+      <%= f.check_box :front, class: "form-check-input" %>
+      <%= f.label :front, class: "form-check-label" %>
     </div>
-    <div class="field">
-      <%= f.label :back %>
-      <%= f.check_box :back %>
+
+    <div class="form-check">
+      <%= f.check_box :back, class: "form-check-input" %>
+      <%= f.label :back, class: "form-check-label" %>
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-check mb-3">
+    <%= form.check_box :work, class: "form-check-input" %>
+    <%= form.label :work, class: "form-check-label" %>
+  </div>
+
+  <div class="form-group">
     <%= form.label :formality %>
-    <%= form.number_field :formality %>
+    <%= form.number_field :formality, class: "form-control" %>
+    <p class="form-text text-muted">How fancy is this outfit?</p>
   </div>
 
-  <div class="field">
-    <%= form.label :work %>
-    <%= form.check_box :work %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions mt-4">
+    <%= form.submit class: "btn btn-success btn-lg mr-3" %>
+    <%= link_to 'Cancel', outfits_path %>
   </div>
 <% end %>
