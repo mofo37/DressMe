@@ -14,10 +14,5 @@
   <% end %>
 </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag(url_for @piece.image) %>
-</p>
-
 <%= link_to 'Edit', edit_piece_path(@piece) %> |
 <%= link_to 'Back', pieces_path %>

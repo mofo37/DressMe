@@ -15,7 +15,6 @@ class PiecesController < ApplicationController
   # GET /pieces/new
   def new
     @piece = Piece.new
-    @piece.piece_photos.new
   end
 
   # GET /pieces/1/edit
