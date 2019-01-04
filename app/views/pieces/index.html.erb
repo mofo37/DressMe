@@ -17,11 +17,9 @@
       <tr>
         <td><%= piece.name %></td>
         <td>
-          <% piece.piece_photos.each do |piece_photo| %>
             <div>
-              <%= image_tag(piece_photo.url)  %>
+              <%= piece.url %>
             </div>
-          <% end %>
         </td>
         <td>
         <% if piece.image.attached? %>
