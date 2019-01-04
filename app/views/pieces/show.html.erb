@@ -11,6 +11,12 @@
       <%= image_tag(@piece.url) if @piece.url.present? %>
     </div>
 </p>
+<p>
+  <strong>Uploaded Photo:</strong>
+    <div>
+      <%= image_tag(url_for @piece.image) if @piece.image.present? %>
+    </div>
+</p>
 
 <%= link_to 'Edit', edit_piece_path(@piece) %> |
 <%= link_to 'Back', pieces_path %>
