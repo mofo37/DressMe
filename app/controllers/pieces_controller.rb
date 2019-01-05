@@ -27,6 +27,10 @@ class PiecesController < ApplicationController
     @piece = current_user.pieces.new(piece_params)
     @piece.image.attach(piece_params[:image])
 
+    puts "*" * 80
+    puts @piece.inspect
+    puts "*" * 80
+    
     respond_to do |format|
       if @piece.save
         format.html { redirect_to @piece, notice: 'Piece was successfully created.' }

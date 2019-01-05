@@ -6,14 +6,17 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <% @outfit.outfit_photos.each do |outfit_photo| %>
+  <strong>URL:</strong>
     <div>
-      <%= image_tag(outfit_photo.url) if outfit_photo.url.present? %>
+      <%= image_tag(@outfit.url) if @outfit.url.present? %>
     </div>
-  <% end %>
 </p>
-
+<p>
+  <strong>Uploaded Photo:</strong>
+    <div>
+      <%= image_tag(url_for @outfit.image) if @outfit.image.present? %>
+    </div>
+</p>
 
 <p>
   <strong>Formality:</strong>

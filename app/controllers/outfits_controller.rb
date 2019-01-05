@@ -15,7 +15,6 @@ class OutfitsController < ApplicationController
   # GET /outfits/new
   def new
     @outfit = Outfit.new
-    @outfit.outfit_photos.new
   end
 
   # GET /outfits/1/edit
@@ -30,6 +29,7 @@ class OutfitsController < ApplicationController
     # outfit_params_hash = outfit_params.reject{|k,v| k == "photos_attributes"}
 
     @outfit = current_user.outfits.new(outfit_params)
+    @outfit.image.attach(outfit_params[:image])
     
     respond_to do |format|
       if @outfit.save
@@ -47,6 +47,9 @@ class OutfitsController < ApplicationController
   # PATCH/PUT /outfits/1
   # PATCH/PUT /outfits/1.json
   def update
+
+    @outfit.image.attach(outfit_params[:image])
+
     respond_to do |format|
       if @outfit.update(outfit_params)
         format.html { redirect_to @outfit, notice: 'Outfit was successfully updated.' }
@@ -76,6 +79,6 @@ class OutfitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def outfit_params
-      params.require(:outfit).permit(:name, :formality, :work, outfit_photos_attributes: [:url, :front, :back])
+      params.require(:outfit).permit(:name, :formality, :work, :image, :url)
     end
 end
