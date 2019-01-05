@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   
   resources :users
-  resources :photos, only: :index
   resources :pieces
   resources :outfits
   resources :sessions
