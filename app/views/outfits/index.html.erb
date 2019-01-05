@@ -20,7 +20,9 @@
         <td><%= outfit.name %></td>
         <td>
             <div>
-              <%= outfit.url  %>
+            <% if outfit.url.present? %>
+              <%= image_tag(outfit.url)  %>
+            <% end %>
             </div>
         </td>
         <td>

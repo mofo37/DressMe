@@ -14,7 +14,7 @@
 <p>
   <strong>Uploaded Photo:</strong>
     <div>
-      <%= image_tag(url_for @outfit.image) if @outfit.image.present? %>
+      <%= image_tag(url_for @outfit.image) if @outfit.image.attached? %>
     </div>
 </p>
 
