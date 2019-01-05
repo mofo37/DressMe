@@ -17,14 +17,16 @@
       <tr>
         <td><%= piece.name %></td>
         <td>
-            <div>
-              <%= piece.url %>
-            </div>
+          <div>
+            <% if piece.url.present? %>
+              <%= image_tag(piece.url) %>
+            <% end %>
+          </div>
         </td>
         <td>
-        <% if piece.image.attached? %>
-        <%= image_tag(url_for(piece.image)) %>
-        <% end %>
+          <% if piece.image.attached? %>
+            <%= image_tag(url_for(piece.image)) %>
+          <% end %>
         </td>
         <td><%= link_to 'Show', piece %></td>
         <td><%= link_to 'Edit', edit_piece_path(piece) %></td>

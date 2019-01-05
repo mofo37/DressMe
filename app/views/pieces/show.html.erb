@@ -14,7 +14,7 @@
 <p>
   <strong>Uploaded Photo:</strong>
     <div>
-      <%= image_tag(url_for @piece.image) if @piece.image.present? %>
+      <%= image_tag(url_for @piece.image) if @piece.image.attached? %>
     </div>
 </p>
 
