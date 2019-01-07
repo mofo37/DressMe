@@ -11,22 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control"%>
   </div>
 
-  <div class="field">
-    <%= form.label :images %>
+  <div class="form-group">
+    <%= form.label :images, "Uploaded Image" %>
     <%= form.file_field :images, multiple: true %>
   </div>
 
-    <div class="field">
+    <div class="form-group">
       <%= form.label :url %>
-      <%= form.text_field :url %>
+      <%= form.text_field :url, class: "form-control" %>
     </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions mt-4">
+    <%= form.submit class: "btn btn-success btn-lg mr-3" %>
+    <%= link_to 'Cancel', pieces_path %>
   </div>
 <% end %>
