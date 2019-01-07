@@ -4,5 +4,5 @@ class Piece < ApplicationRecord
   has_many :stylings
   has_many :outfits, through: :stylings
 
-  has_one_attached :image
+  has_many_attached :images
 end

@@ -13,9 +13,11 @@
 </p>
 <p>
   <strong>Uploaded Photo:</strong>
+    <% @piece.images.each do |image| %>
     <div>
-      <%= image_tag(url_for @piece.image) if @piece.image.attached? %>
+      <%= image_tag image %>
     </div>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_piece_path(@piece) %> |

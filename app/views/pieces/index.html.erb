@@ -24,8 +24,10 @@
           </div>
         </td>
         <td>
-          <% if piece.image.attached? %>
-            <%= image_tag(url_for(piece.image)) %>
+          <% if piece.images.attached? %>
+            <%= piece.images.each do |image|%>
+              <%= image_tag(url_for(image)) %>
+            <% end %>
           <% end %>
         </td>
         <td><%= link_to 'Show', piece %></td>
