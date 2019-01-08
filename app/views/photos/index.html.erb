@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Photos</h1>
+
+<% @collections.each do |piece| %>
+    <% if piece.images.attached? %>
+        <% piece.images.each do |image|%>
+          <%= image_tag(url_for(image)) %>
+        <% end %>
+      <% end %>
+  <% end %>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
   resources :users
   resources :pieces
+  resources :photos, only: :index
   resources :outfits
   resources :sessions
 end
