@@ -27,8 +27,10 @@
         </td>
         <td>
             <div>
-              <% if outfit.image.attached? %>
-                <%= image_tag(url_for(outfit.image))  %>
+              <% if outfit.images.attached? %>
+                <% outfit.images.each do |image|%>
+                  <%= image_tag(url_for(image)) %>
+                <% end %>
               <% end %>
             </div>
         </td>

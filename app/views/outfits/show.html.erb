@@ -2,7 +2,7 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @outfit.name %>
+    <%= @outfit.name %>
 </p>
 
 <p>
@@ -13,19 +13,21 @@
 </p>
 <p>
   <strong>Uploaded Photo:</strong>
-    <div>
-      <%= image_tag(url_for @outfit.image) if @outfit.image.attached? %>
-    </div>
+    <% @outfit.images.each do |image| %>
+      <div>
+        <%= image_tag image %>
+      </div>
+    <% end %>
 </p>
 
 <p>
   <strong>Formality:</strong>
-  <%= @outfit.formality %>
+    <%= @outfit.formality %>
 </p>
 
 <p>
   <strong>Work:</strong>
-  <%= @outfit.work %>
+    <%= @outfit.work %>
 </p>
 
 <%= link_to 'Edit', edit_outfit_path(@outfit) %> |
