@@ -25,7 +25,7 @@
         </td>
         <td>
           <% if piece.images.attached? %>
-            <%= piece.images.each do |image|%>
+            <% piece.images.each do |image|%>
               <%= image_tag(url_for(image)) %>
             <% end %>
           <% end %>

@@ -25,8 +25,7 @@ class PiecesController < ApplicationController
   # POST /pieces.json
   def create
     @piece = current_user.pieces.new(piece_params)
-    @piece.images.attach(piece_params[:images])
-    
+
     respond_to do |format|
       if @piece.save
         format.html { redirect_to @piece, notice: 'Piece was successfully created.' }
@@ -41,9 +40,6 @@ class PiecesController < ApplicationController
   # PATCH/PUT /pieces/1
   # PATCH/PUT /pieces/1.json
   def update
-
-    @piece.images.attach(piece_params[:images])
-
     respond_to do |format|
       if @piece.update(piece_params)
         format.html { redirect_to @piece, notice: 'Piece was successfully updated.' }
