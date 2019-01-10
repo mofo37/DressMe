@@ -37,8 +37,13 @@
     <p class="form-text text-muted">How fancy is this outfit?</p>
   </div>
 
-  <div class="actions mt-4">
-    <%= submit_tag 'Add Pieces', :type => 'button', class: "btn btn-success btn-md mr-3" %>
+  <div>
+    <% @pieces.each do |piece| %>
+      <%= form.label "piece_ids_#{piece.id}", class: "form-check-label" do %>
+        <%= piece_check_box form: form, piece: piece %>
+    <b><%= piece.name %></b>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="actions mt-4">

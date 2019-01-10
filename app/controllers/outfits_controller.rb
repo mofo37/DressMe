@@ -15,6 +15,7 @@ class OutfitsController < ApplicationController
   # GET /outfits/new
   def new
     @outfit = Outfit.new
+    @pieces = current_user.pieces
   end
 
   # GET /outfits/1/edit
@@ -76,6 +77,6 @@ class OutfitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def outfit_params
-      params.require(:outfit).permit(:name, :formality, :work, :url, images: [])
+      params.require(:outfit).permit(:name, :formality, :work, :url, :piece_ids, images: [])
     end
 end
