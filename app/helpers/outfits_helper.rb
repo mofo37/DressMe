@@ -4,7 +4,7 @@ module OutfitsHelper
                    {
                      id: "outfit_piece_ids_#{piece.id}",
                      name: 'outfit[piece_ids][]',
-                     class: 'form-check-input'
+                     class: 'form-check-input sr-only'
                    },
                    piece.id,
                    nil

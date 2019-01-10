@@ -39,10 +39,14 @@
 
   <div>
     <% @pieces.each do |piece| %>
+    <span>
+      <%= piece_check_box form: form, piece: piece %>
       <%= form.label "piece_ids_#{piece.id}", class: "form-check-label" do %>
-        <%= piece_check_box form: form, piece: piece %>
-    <b><%= piece.name %></b>
+        <% piece.images.each do |image| %>
+          <%= image_tag image %>
+        <% end %>
       <% end %>
+    </span>
     <% end %>
   </div>
 

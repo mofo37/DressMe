@@ -10,6 +10,7 @@ class OutfitsController < ApplicationController
   # GET /outfits/1
   # GET /outfits/1.json
   def show
+    @pieces = current_user.pieces
   end
 
   # GET /outfits/new
@@ -77,6 +78,6 @@ class OutfitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def outfit_params
-      params.require(:outfit).permit(:name, :formality, :work, :url, :piece_ids, images: [])
+      params.require(:outfit).permit(:name, :formality, :work, :url, piece_ids: [], images: [])
     end
 end
