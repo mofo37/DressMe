@@ -1,3 +1,5 @@
-// Place all the styles related to the Outfits controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+input[type=checkbox]:checked + label img {
+  outline: 7px solid hotpink;
+  margin: 10px;
+  padding: 5px;
+}
