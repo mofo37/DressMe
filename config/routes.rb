@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   
+  resources :wishlists
   resources :users
   resources :pieces
   resources :photos, only: :index
