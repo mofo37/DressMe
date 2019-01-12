@@ -9,7 +9,7 @@
 <p>
   <strong>Notes:</strong>
     <div>
-      <%= @wishlist.notes %>
+      <%= h auto_link(simple_format(@wishlist.notes)) %>
     </div>
 </p>
 

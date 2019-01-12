@@ -28,6 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap'
 gem 'autoprefixer-rails'
 gem 'jquery-rails', '~> 4.3'
+gem 'rails_autolink'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
