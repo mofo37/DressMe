@@ -6,6 +6,12 @@
       <%= image_tag(@wishlist.url) if @wishlist.url.present? %>
     </div>
 </p>
+<p>
+  <strong>Notes:</strong>
+    <div>
+      <%= @wishlist.notes %>
+    </div>
+</p>
 
 <%= link_to 'Edit', edit_wishlist_path(@wishlist) %> |
 <%= link_to 'Back', wishlists_path %>
