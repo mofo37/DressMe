@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>URL</th>
       <th>Photo</th>
       <th colspan="3"></th>
     </tr>
@@ -16,13 +15,6 @@
     <% @pieces.each do |piece| %>
       <tr>
         <td><%= piece.name %></td>
-        <td>
-          <div>
-            <% if piece.url.present? %>
-              <%= image_tag(piece.url) %>
-            <% end %>
-          </div>
-        </td>
         <td>
           <% if piece.images.attached? %>
             <% piece.images.each do |image|%>

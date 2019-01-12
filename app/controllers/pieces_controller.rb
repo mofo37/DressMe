@@ -69,6 +69,6 @@ class PiecesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def piece_params
-      params.require(:piece).permit(:name, :url, images: [])
+      params.require(:piece).permit(:name, images: [])
     end
 end
