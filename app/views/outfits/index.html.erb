@@ -6,8 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>URL</th>
-      <th>Uploaded Image</th>
+      <th>Outfit</th>
       <th>Pieces</th>
       <th>Formality</th>
       <th>Work</th>
@@ -19,13 +18,6 @@
     <% @outfits.each do |outfit| %>
       <tr>
         <td><%= outfit.name %></td>
-        <td>
-            <div>
-            <% if outfit.url.present? %>
-              <%= image_tag(outfit.url)  %>
-            <% end %>
-            </div>
-        </td>
         <td>
             <div>
               <% if outfit.images.attached? %>

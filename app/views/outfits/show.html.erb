@@ -4,13 +4,6 @@
   <strong>Name:</strong>
     <%= @outfit.name %>
 </p>
-
-<p>
-  <strong>URL:</strong>
-    <div>
-      <%= image_tag(@outfit.url) if @outfit.url.present? %>
-    </div>
-</p>
 <p>
   <strong>Uploaded Photo:</strong>
     <% @outfit.images.each do |image| %>
