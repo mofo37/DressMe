@@ -4,13 +4,6 @@
   <strong>Name:</strong>
   <%= @piece.name %>
 </p>
-
-<p>
-  <strong>URL:</strong>
-    <div>
-      <%= image_tag(@piece.url) if @piece.url.present? %>
-    </div>
-</p>
 <p>
   <strong>Uploaded Photo:</strong>
     <% @piece.images.each do |image| %>
