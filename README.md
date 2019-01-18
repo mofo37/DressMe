@@ -1,24 +1,13 @@
-# README
+# DressMe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+DressMe allows users to store images and descriptions of their clothing items. They can be grouped as outfits or individual pieces. 
 
-Things you may want to cover:
+# Why?
 
-* Ruby version
+DressMe makes choosing outfits more seemless... and fun! Instead of rifling through closets and drawers, the user can simply swipe through pics to find what fits their vibe.
 
-* System dependencies
+This is a Ruby on Rails project.
 
-* Configuration
+#Contributors
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+@mofo37
