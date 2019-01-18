@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :url %>
+    <%= form.label :url, "URL" %>
     <%= form.text_field :url, class: "form-control" %>
   </div>
 
@@ -22,7 +22,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit "Create Wishlist Item" %>
+    <%= form.submit class: "btn btn-success btn-lg mr-3"%>
     <%= link_to 'Cancel', wishlists_path %>
   </div>
 <% end %>

@@ -17,13 +17,14 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :image, "Uploaded Image" %>
+    <%= form.label :image, "Uploaded Image" %><br>
     <%= form.file_field :images, multiple: true %>
   </div>
 
   <div class="form-check mb-3">
     <%= form.check_box :work, class: "form-check-input" %>
     <%= form.label :work, class: "form-check-label" %>
+    <p class="form-text text-muted">Is this outfit work appropriate?</p>
   </div>
 
   <div class="form-group">
