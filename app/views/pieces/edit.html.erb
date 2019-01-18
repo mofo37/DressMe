@@ -2,5 +2,5 @@
 
 <%= render 'form', piece: @piece %>
 
-<%= link_to 'Show', @piece %> |
-<%= link_to 'Back', pieces_path %>
+<%= link_to 'Delete', @piece, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Show', @piece %>
