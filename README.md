@@ -8,6 +8,6 @@ DressMe makes choosing outfits more seemless... and fun! Instead of rifling thro
 
 This is a Ruby on Rails project.
 
-#Contributors
+# Contributors
 
 @mofo37
