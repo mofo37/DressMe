@@ -1,11 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-    <%= @outfit.name %>
+    <h2><%= @outfit.name %></h2>
 </p>
 <p>
-  <strong>Uploaded Photo:</strong>
     <% @outfit.images.each do |image| %>
       <div>
         <%= image_tag image %>
@@ -14,17 +12,14 @@
 </p>
 
 <p>
-  <strong>Formality:</strong>
     <%= @outfit.formality %>
 </p>
 
 <p>
-  <strong>Work:</strong>
     <%= @outfit.work %>
 </p>
 
 <p>
-  <strong>Pieces:</strong>
   <% @outfit.pieces.each do |piece| %>
     <% piece.images. each do |image| %>
       <%= image_tag image %>
@@ -32,5 +27,4 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_outfit_path(@outfit) %> |
-<%= link_to 'Back', outfits_path %>
+<%= link_to 'Edit', edit_outfit_path(@outfit) %>

@@ -1,12 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @piece.name %>
+  <h1><%= @piece.name %></h1>
 </p>
 <p>
-  <strong>Uploaded Photo:</strong>
-    <% @piece.images.each do |image| %>
+  <% @piece.images.each do |image| %>
     <div>
       <%= image_tag image %>
     </div>

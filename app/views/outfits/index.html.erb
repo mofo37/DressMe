@@ -1,47 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Outfits</h1>
-
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Outfit</th>
-      <th>Pieces</th>
-      <th>Formality</th>
-      <th>Work</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div>
     <% @outfits.each do |outfit| %>
-      <tr>
-        <td><%= outfit.name %></td>
-        <td>
+        <h2><%= link_to outfit.name, outfit %></h2>
+        <div>
             <div>
               <% if outfit.images.attached? %>
                 <% outfit.images.each do |image|%>
-                  <%= image_tag(url_for(image)) %>
+                  <%= link_to image_tag(url_for(image)), outfit %>
                 <% end %>
               <% end %>
             </div>
-          </td>
-          <td>
+          </div>
+          <div>
             <div>
               <% outfit.pieces.each do |piece| %>
                 <% piece.images. each do |image| %>
-                  <%= image_tag image %>
+                  <%= link_to image_tag(image), outfit %>
                 <% end %>  
               <% end %>
             </div>
-        </td>
-        <td><%= outfit.formality %></td>
-        <td><%= outfit.work %></td>
-        <td><%= link_to 'Show', outfit %></td>
-        <td><%= link_to 'Edit', edit_outfit_path(outfit) %></td>
-        <td><%= link_to 'Destroy', outfit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        </div>
+        <div><%= outfit.formality %></div>
+        <div><%= outfit.work %></div>
     <% end %>
-  </tbody>
-</table>
+  </div>

@@ -21,6 +21,7 @@ class OutfitsController < ApplicationController
 
   # GET /outfits/1/edit
   def edit
+    @pieces = current_user.pieces
   end
 
   # POST /outfits
