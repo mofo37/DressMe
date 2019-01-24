@@ -17,6 +17,7 @@ function updateRangeValue(input){
 }
 
 $(document).ready(function() {
+    $(".pieces").hide();
         $(".show-pieces").click(function(e) {
             e.preventDefault();
             $(".pieces").toggle();
