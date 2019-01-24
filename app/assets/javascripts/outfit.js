@@ -15,3 +15,10 @@ function updateRangeValue(input){
     input.next('.text').css({'left': offLeftAbs +'px'});
     input.next('.text').html(value);
 }
+
+$(document).ready(function() {
+        $(".show-pieces").click(function(e) {
+            e.preventDefault();
+            $(".pieces").toggle();
+    });
+});

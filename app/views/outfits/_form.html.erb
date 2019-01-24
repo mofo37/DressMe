@@ -37,7 +37,8 @@
     </div>
   </div>
 
-  <div>
+  <button class="show-pieces">Add Pieces</button>
+  <div class="pieces">
     <% @pieces.each do |piece| %>
     <span>
       <%= piece_check_box form: form, piece: piece %>
