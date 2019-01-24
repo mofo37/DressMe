@@ -7,11 +7,16 @@
     </div>
 </p>
 <p>
+  <strong>Product URL:</strong>
+    <div>
+      <%= h auto_link(simple_format(@wishlist.product_url)) %>
+    </div>
+</p>
+<p>
   <strong>Notes:</strong>
     <div>
-      <%= h auto_link(simple_format(@wishlist.notes)) %>
+      <%= @wishlist.notes %>
     </div>
 </p>
 
-<%= link_to 'Edit', edit_wishlist_path(@wishlist) %> |
-<%= link_to 'Back', wishlists_path %>
+<%= link_to 'Edit', edit_wishlist_path(@wishlist) %>

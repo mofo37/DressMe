@@ -2,5 +2,4 @@
 
 <%= render 'form', wishlist: @wishlist %>
 
-<%= link_to 'Show', @wishlist %> |
-<%= link_to 'Back', wishlists_path %>
+<td><%= link_to 'Delete', @wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
