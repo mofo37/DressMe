@@ -17,11 +17,12 @@
         <td>
           <div>
             <% if wishlist.url.present? %>
-              <%= link_to(image_tag(wishlist.url), wishlist.notes) %>
+              <%= link_to(image_tag(wishlist.url), wishlist.product_url) %>
             <% end %>
           </div>
         </td>
-        <td><%= link_to auto_link(simple_format(wishlist.notes),:all, target: :blank) %></td>
+        <td><%= link_to auto_link(simple_format(wishlist.product_url),:all, target: :blank) %></td>
+        <td><%= wishlist.notes %></td>
         <td><%= link_to 'Show', wishlist %></td>
         <td><%= link_to 'Edit', edit_wishlist_path(wishlist) %></td>
         <td><%= link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
