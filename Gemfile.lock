@@ -221,7 +221,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   pg
   puma (~> 3.11)
-  rails (~> 5.2.2)
+  rails (~> 5.2.1, >= 5.2.1.1)
   rails_autolink
   sassc-rails
   selenium-webdriver

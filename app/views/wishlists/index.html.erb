@@ -17,7 +17,7 @@
         <td>
           <div>
             <% if wishlist.url.present? %>
-              <%= image_tag(wishlist.url) %>
+              <%= link_to(image_tag(wishlist.url), wishlist.notes) %>
             <% end %>
           </div>
         </td>

@@ -31,6 +31,10 @@
     <%= form.label :formality %>
     <%= form.number_field :formality, class: "form-control", min: 1, max: 10, placeholder: "1 - 10" %>
     <p class="form-text text-muted">How fancy is this outfit?</p>
+    <div class="range-wrapper">
+      <input type="range" min="0" max="10" id="myRange"/>
+    <div class="text">1</div>
+    </div>
   </div>
 
   <div>
