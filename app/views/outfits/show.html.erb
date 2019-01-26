@@ -6,7 +6,7 @@
 <p>
     <% @outfit.images.each do |image| %>
       <div>
-        <%= image_tag image %>
+        <%= image_tag(image, class: 'outfit-in-outfit') %>
       </div>
     <% end %>
 </p>
@@ -21,9 +21,7 @@
 
 <p>
   <% @outfit.pieces.each do |piece| %>
-    <% piece.images. each do |image| %>
-      <%= image_tag image %>
-    <% end %>  
+      <%= image_tag(piece.images.first, class: 'piece-in-outfit') %>
   <% end %>
 </p>
 

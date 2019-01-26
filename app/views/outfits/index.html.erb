@@ -8,7 +8,7 @@
             <div>
               <% if outfit.images.attached? %>
                 <% outfit.images.each do |image|%>
-                  <%= link_to image_tag(url_for(image)), outfit %>
+                  <%= link_to image_tag(url_for(image), class: 'outfit-in-outfit'), outfit %>
                 <% end %>
               <% end %>
             </div>
@@ -16,9 +16,7 @@
           <div>
             <div>
               <% outfit.pieces.each do |piece| %>
-                <% piece.images. each do |image| %>
-                  <%= link_to image_tag(image), outfit %>
-                <% end %>  
+                  <%= link_to image_tag(piece.images.first, class: 'piece-in-outfit'), outfit %>
               <% end %>
             </div>
         </div>
