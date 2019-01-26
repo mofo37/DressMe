@@ -21,6 +21,10 @@
             </div>
         </div>
         <div><%= outfit.formality %></div>
-        <div><%= outfit.work %></div>
+        <% if outfit.work == true %>
+          <div><%= link_to "Work Appropriate", outfit %></div>
+        <% else %>
+          <div><%= link_to "Not Work Appropriate" , outfit %></div>
+        <% end %>
     <% end %>
   </div>
