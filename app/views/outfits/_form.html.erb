@@ -22,9 +22,10 @@
   </div>
 
   <div class="form-check mb-3">
-    <%= form.check_box :work, class: "form-check-input" %>
-    <%= form.label :work, class: "form-check-label" %>
-    <p class="form-text text-muted">Is this outfit work appropriate?</p>
+    <%= form.label :work, "I can wear this outfit to work", class: "form-check-label" %>
+    <%= form.radio_button :work, class: "form-check-input" %>
+    <%= form.label :work, "I cannot wear this outfit to work", class: "form-check-label" %>
+    <%= form.radio_button :work, class: "form-check-input" %>
   </div>
 
   <div class="form-group">
