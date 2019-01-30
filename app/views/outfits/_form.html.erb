@@ -23,20 +23,16 @@
 
   <div class="form-check mb-3">
     <%= form.label :work, "I can wear this outfit to work", class: "form-check-label" %>
-    <%= form.radio_button :work, class: "form-check-input" %>
+    <%= form.radio_button :work, true, class: "form-check-input" %>
     <%= form.label :work, "I cannot wear this outfit to work", class: "form-check-label" %>
-    <%= form.radio_button :work, class: "form-check-input" %>
+    <%= form.radio_button :work, false, class: "form-check-input" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :formality %>
-    <%= form.number_field :formality, class: "form-control", min: 1, max: 10, placeholder: "1 - 10" %>
-    <p class="form-text text-muted">How fancy is this outfit?</p>
-    <div class="range-wrapper">
-      <input type="range" min="0" max="10" id="myRange"/>
-    <div class="text">1</div>
-    </div>
+    <%= form.label :formality, "How Fancy Is This Outfit?" %>
+    <%= form.range_field :formality, class: "form-control range-wrapper", min: 1, max: 10, value: 5 %>
   </div>
+    <div class="text">5</div>
 
   <button class="show-pieces">Add Pieces</button>
   <div class="pieces">
