@@ -15,9 +15,9 @@
     <%= @outfit.formality %>
 </p>
 
-<p>
-    <%= @outfit.work %>
-</p>
+<div>
+    <%= link_to "#{"Not" unless @outfit.work} Work Appropriate", @outfit %>
+</div>
 
 <p>
   <% @outfit.pieces.each do |piece| %>
