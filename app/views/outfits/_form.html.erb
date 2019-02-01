@@ -17,19 +17,21 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :image, "Upload Image" %><br>
+    <%= form.label :image, "Want to add pics of you in your full ensemble? Choose files below!" %><br>
     <%= form.file_field :images, multiple: true %>
   </div>
 
   <div class="form-check mb-3">
-    <%= form.label :work, "I can wear this outfit to work", class: "form-check-label" %>
     <%= form.radio_button :work, true, class: "form-check-input" %>
-    <%= form.label :work, "I cannot wear this outfit to work", class: "form-check-label" %>
+    <%= form.label :work, "I can wear this outfit to work", class: "form-check-label" %>
+  </div>
+  <div class="form-check mb-3">
     <%= form.radio_button :work, false, class: "form-check-input" %>
+    <%= form.label :work, "I cannot wear this outfit to work", class: "form-check-label" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :formality, "How Fancy Is This Outfit?" %>
+    <%= form.label :formality, "Use the slider to show how fancy this outfit is from 1-10" %>
     <%= form.range_field :formality, class: "form-control range-wrapper", min: 1, max: 10, value: 5 %>
   </div>
     <div class="text">5</div>
