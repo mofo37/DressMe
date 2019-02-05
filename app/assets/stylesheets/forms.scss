@@ -2,3 +2,7 @@ input[type="file"]::-webkit-file-upload-button {
   @extend .btn;
   @extend .btn-primary;
 }
+
+.range-wrapper {
+  width: 50%;
+}
