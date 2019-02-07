@@ -3,7 +3,7 @@
 <h1>Pieces</h1>
   <div>
     <% @pieces.each do |piece| %>
-      <div>
+      <div class="mb-5">
         <h2><%= link_to piece.name, piece %></h2>
         <div>
           <% if piece.images.attached? %>
