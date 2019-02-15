@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tag: one
+  outfit: one
+  piece: one
+  wishlist: one
+
+two:
+  tag: two
+  outfit: two
+  piece: two
+  wishlist: two
