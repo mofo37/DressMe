@@ -27,16 +27,11 @@ class OutfitsController < ApplicationController
   # POST /outfits
   # POST /outfits.json
   def create
-    # TODO HACK TEMP because the fields_for and nested attributes isn't doing the right thing. File upload not working yet.
-    # photo = current_user.photos.create(outfit_params["photos_attributes"])
-    # outfit_params_hash = outfit_params.reject{|k,v| k == "photos_attributes"}
 
     @outfit = current_user.outfits.new(outfit_params)
     
     respond_to do |format|
       if @outfit.save
-        # TODO TEMP HACK this line can get deleted when above hack gets resolved.
-        # @outfit.photos << photo
         format.html { redirect_to @outfit, notice: 'Outfit was successfully created.' }
         format.json { render :show, status: :created, location: @outfit }
       else
