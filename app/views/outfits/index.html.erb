@@ -1,31 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Outfits</h1>
-  <div>
-    <% @outfits.each do |outfit| %>
-        <h2><%= link_to outfit.name, outfit %></h2>
-        <div>
-            <div>
-              <% if outfit.images.attached? %>
-                <% outfit.images.each do |image|%>
-                  <%= link_to image_tag(url_for(image), class: "outfit-in-outfit"), outfit %>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-          <div>
-            <div>
-              <% outfit.pieces.each do |piece| %>
-                  <%= link_to image_tag(piece.images.first, class: "piece-in-outfit"), outfit %>
-              <% end %>
-            </div>
-        </div>
-        
-        <div><%= link_to outfit.formality, outfit %></div>
 
-        <div>
-          <%= link_to "#{"Not" unless outfit.work} Work Appropriate", outfit %>
-        </div>
+<div>
+  <% @outfits.each do |outfit| %>
+    <h2><%= link_to outfit.name, outfit %></h2>
+    <div>
+      <div>
+        <% if outfit.images.attached? %>
+          <% outfit.images.each do |image|%>
+            <%= link_to image_tag(url_for(image), class: "outfit-in-outfit"), outfit %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
-    <% end %>
-  </div>
+    <div>
+      <div>
+        <% outfit.pieces.each do |piece| %>
+          <%= link_to image_tag(piece.images.first, class: "piece-in-outfit"), outfit %>
+        <% end %>
+      </div>
+    </div>
+
+    <div><%= link_to outfit.formality, outfit %></div>
+
+    <div>
+      <%= link_to "#{ "Not" unless outfit.work? } Work Appropriate", outfit %>
+    </div>
+
+  <% end %>
+</div>
