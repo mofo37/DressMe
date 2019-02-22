@@ -1,13 +1,13 @@
 $(document).ready(function () {
   $("#outfit_formality").on('input change', function () {
-    var value = $("#outfit_formality").val()
-    $(".text").text(value)
+    var slider_value = $("#outfit_formality").val()
+    $(".text").text(slider_value)
   });
 });
 
 $(document).ready(function () {
   $(".pieces").hide();
-  $(".show-pieces").click(function (e) {
+  $(".pieces-button").click(function (e) {
     e.preventDefault();
     $(".pieces").toggle();
   });
