@@ -1,27 +1,26 @@
 <p id="notice"><%= notice %></p>
 
+<h2><%= @outfit.name %></h2>
+
 <p>
-    <h2><%= @outfit.name %></h2>
-</p>
-<p>
-    <% @outfit.images.each do |image| %>
-      <div>
-        <%= image_tag(image, class: 'outfit-in-outfit') %>
-      </div>
-    <% end %>
+  <% @outfit.images.each do |image| %>
+    <div>
+      <%= image_tag(image, class: 'outfit-in-outfit') %>
+    </div>
+  <% end %>
 </p>
 
 <p>
-    <%= @outfit.formality %>
+  <%= @outfit.formality %>
 </p>
 
 <div>
-    <%= "#{"Not" unless @outfit.work} Work Appropriate" %>
+  <%= "#{"Not" unless @outfit.work} Work Appropriate" %>
 </div>
 
 <p>
   <% @outfit.pieces.each do |piece| %>
-      <%= link_to image_tag(piece.images.first, class: 'piece-in-outfit'), piece %>
+    <%= link_to image_tag(piece.images.first, class: 'piece-in-outfit'), piece %>
   <% end %>
 </p>
 
