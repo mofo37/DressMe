@@ -1,5 +1,5 @@
 class Outfit < ApplicationRecord
-  belongs_to :user, optional: true
+  belongs_to :user
 
   has_many :stylings, dependent: :destroy
   has_many :pieces, through: :stylings

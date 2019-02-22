@@ -10,7 +10,6 @@ class OutfitsController < ApplicationController
   # GET /outfits/1
   # GET /outfits/1.json
   def show
-    @pieces = current_user.pieces
   end
 
   # GET /outfits/new
