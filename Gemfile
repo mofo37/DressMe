@@ -7,19 +7,19 @@ gem 'rails', '~> 5.2.1'
 gem 'pg'
 
 # App server
-gem 'puma', '~> 3.11'
+gem 'puma'
 
 # CSS and JS
 gem 'sassc-rails'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 gem 'bootstrap'
 gem 'autoprefixer-rails'
-gem 'jquery-rails', '~> 4.3'
+gem 'jquery-rails'
 
 # Auth
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 
-# ActiveStorage
+# Uploads using ActiveStorage
 gem 'mini_magick', '~> 4.8'
 gem 'aws-sdk-s3', require: false
 
@@ -27,19 +27,19 @@ gem 'aws-sdk-s3', require: false
 gem 'rails_autolink'
 
 # Fast boot
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console'
+  gem 'listen'
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
+  gem 'capybara'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end
