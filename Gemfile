@@ -28,8 +28,9 @@ gem 'autoprefixer-rails'
 gem 'jquery-rails', '~> 4.3'
 gem 'rails_autolink'
 
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+# ActiveStorage
+gem 'mini_magick', '~> 4.8'
+gem 'aws-sdk-s3', require: false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
