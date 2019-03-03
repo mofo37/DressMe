@@ -12,3 +12,4 @@ This is a Ruby on Rails project.
 
 - Morgan Fogarty / @mofo37
 - Shane Becker / @veganstraightedge
+
