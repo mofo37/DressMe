@@ -23,9 +23,11 @@
         <li>
           © 2018–<%= Time.now.year %>
         </li>
-        <li>
-          <%= link_to "Sign Out", signout_path, class: "nav-link" %>
-        </li>
+          <% if current_user %>
+            <li>
+              <%= link_to "Sign Out", signout_path, class: "nav-link" %>
+            </li>
+          <% end %>
       </ul>
     </footer>
   </body>
