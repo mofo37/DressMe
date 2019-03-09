@@ -1,4 +1,5 @@
 class PiecesController < ApplicationController
+  before_action :authorize
   before_action :set_piece, only: [:show, :edit, :update, :destroy]
 
   # GET /pieces

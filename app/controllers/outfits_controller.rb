@@ -1,4 +1,5 @@
 class OutfitsController < ApplicationController
+  before_action :authorize
   before_action :set_outfit, only: [:show, :edit, :update, :destroy]
 
   # GET /outfits
