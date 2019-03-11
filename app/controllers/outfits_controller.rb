@@ -48,6 +48,12 @@ class OutfitsController < ApplicationController
   # PATCH/PUT /outfits/1
   # PATCH/PUT /outfits/1.json
   def update
+    tags = params[:tags]
+    @outfit.taggings.destroy_all
+
+    tags.split(',').each do |tag|
+      @outfit.tags.create(name: tag.strip)
+    end
 
     respond_to do |format|
       if @outfit.update(outfit_params)

@@ -53,7 +53,7 @@
 
   <div>
     <%= form.label :tags %>
-    <%= text_field_tag :tags %>
+    <%= text_field_tag :tags, @outfit.tags.map {|tag| tag.name }.join(", ") %>
   </div>
 
   <div class="actions mt-4">
