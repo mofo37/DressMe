@@ -28,10 +28,14 @@ class OutfitsController < ApplicationController
   # POST /outfits.json
   def create
 
+    tags = params[:tags]
     @outfit = current_user.outfits.new(outfit_params)
     
     respond_to do |format|
       if @outfit.save
+        tags.split(',').each do |tag|
+          @outfit.tags.create(name: tag.strip)
+        end
         format.html { redirect_to @outfit, notice: 'Outfit was successfully created.' }
         format.json { render :show, status: :created, location: @outfit }
       else
@@ -74,6 +78,6 @@ class OutfitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def outfit_params
-      params.require(:outfit).permit(:name, :formality, :work, piece_ids: [], images: [])
+      params.require(:outfit).permit(:name, :formality, :work, :tags, piece_ids: [], images: [])
     end
 end

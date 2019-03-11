@@ -24,4 +24,9 @@
   <% end %>
 </p>
 
+<div>
+  <% @outfit.tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
+</div>
 <%= link_to 'Edit', edit_outfit_path(@outfit), class: 'btn btn-primary' %>

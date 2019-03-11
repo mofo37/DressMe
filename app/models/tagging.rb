@@ -1,6 +1,4 @@
 class Tagging < ApplicationRecord
   belongs_to :tag
-  belongs_to :outfit
-  belongs_to :piece
-  belongs_to :wishlist
+  belongs_to :taggable, polymorphic: true, touch: true
 end
