@@ -29,6 +29,12 @@
       <div>
         <%= link_to "#{ "Not" unless outfit.work? } Work Appropriate", outfit %>
       </div>
+
+      <div>
+        <% outfit.tags.each do |tag| %>
+          <%= tag.name %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>
