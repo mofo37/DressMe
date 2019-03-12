@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
+  resources :tags, only: [:index, :show]
   resources :wishlists
   resources :users
   resources :pieces

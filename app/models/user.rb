@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :outfits
   has_many :pieces
   has_many :wishlists
+
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings
 end
