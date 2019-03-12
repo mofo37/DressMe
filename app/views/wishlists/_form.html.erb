@@ -26,6 +26,10 @@
     <%= form.text_area :notes, class: "form-control" %>
   </div>
 
+  <div>
+    <%= form.label :tags %>
+    <%= text_field_tag :tags, @wishlist.tags.map {|tag| tag.name }.join(", ") %>
+  </div>
 
   <div class="actions">
     <%= form.submit class: "btn btn-success btn-lg mr-3"%>

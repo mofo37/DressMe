@@ -25,10 +25,15 @@ class WishlistsController < ApplicationController
   # POST /wishlists
   # POST /wishlists.json
   def create
+
+    tags = params[:tags]
     @wishlist = current_user.wishlists.new(wishlist_params)
 
     respond_to do |format|
       if @wishlist.save
+        tags.split(',').each do |tag|
+          @wishlist.tags.create(name: tag.strip)
+        end
         format.html { redirect_to @wishlist, notice: 'Wishlist was successfully created.' }
         format.json { render :show, status: :created, location: @wishlist }
       else
@@ -41,6 +46,14 @@ class WishlistsController < ApplicationController
   # PATCH/PUT /wishlists/1
   # PATCH/PUT /wishlists/1.json
   def update
+
+    tags = params[:tags]
+    @piece.taggings.destroy_all
+
+    tags.split(',').each do |tag|
+      @piece.tags.create(name: tag.strip)
+    end
+
     respond_to do |format|
       if @wishlist.update(wishlist_params)
         format.html { redirect_to @wishlist, notice: 'Wishlist was successfully updated.' }
@@ -70,6 +83,6 @@ class WishlistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wishlist_params
-      params.require(:wishlist).permit(:url, :notes, :product_url)
+      params.require(:wishlist).permit(:url, :notes, :product_url, :tags)
     end
 end

@@ -19,4 +19,10 @@
     </div>
 </p>
 
+<div>
+  <% @wishlist.tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
+</div>
+
 <%= link_to 'Edit', edit_wishlist_path(@wishlist), class: 'btn btn-primary' %>
