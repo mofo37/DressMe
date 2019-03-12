@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <h1><%= @tag.name %></h1>
-</p>
+<h1><%= @tag.name %></h1>
+
+<% @items.each do |item| %>
+  <% item.images.each do |image| %>
+    <%= image_tag image %>
+  <% end %>
+<% end %>

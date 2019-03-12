@@ -27,15 +27,17 @@ class OutfitsController < ApplicationController
   # POST /outfits
   # POST /outfits.json
   def create
-
     tags = params[:tags]
     @outfit = current_user.outfits.new(outfit_params)
     
     respond_to do |format|
       if @outfit.save
+
         tags.split(',').each do |tag|
-          @outfit.tags.create(name: tag.strip)
+          tag = Tag.find_or_create_by(name: tag_name.strip)
+          @outfit.taggings.create(user_id: current_user.id, tag_id: tag.id)
         end
+        
         format.html { redirect_to @outfit, notice: 'Outfit was successfully created.' }
         format.json { render :show, status: :created, location: @outfit }
       else
@@ -45,14 +47,16 @@ class OutfitsController < ApplicationController
     end
   end
 
+# TODO make tagging on update and create more idiomatic
   # PATCH/PUT /outfits/1
   # PATCH/PUT /outfits/1.json
   def update
     tags = params[:tags]
     @outfit.taggings.destroy_all
 
-    tags.split(',').each do |tag|
-      @outfit.tags.create(name: tag.strip)
+    tags.split(',').each do |tag_name|
+      tag = Tag.find_or_create_by(name: tag_name.strip)
+      @outfit.taggings.create(user_id: current_user.id, tag_id: tag.id)
     end
 
     respond_to do |format|
