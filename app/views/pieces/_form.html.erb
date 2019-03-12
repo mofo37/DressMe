@@ -21,6 +21,11 @@
     <%= form.file_field :images, multiple: true %>
   </div>
 
+  <div>
+    <%= form.label :tags %>
+    <%= text_field_tag :tags, @piece.tags.map {|tag| tag.name }.join(", ") %>
+  </div>
+
   <div class="actions mt-4">
     <%= form.submit class: "btn btn-success btn-lg mr-3" %>
     <%= link_to 'Cancel', pieces_path %>

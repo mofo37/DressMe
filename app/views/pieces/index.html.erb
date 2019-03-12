@@ -12,6 +12,11 @@
             <% end %>
           <% end %>
         </div>
+          <div>
+            <% piece.tags.each do |tag| %>
+              <%= tag.name %>
+            <% end %>
+          </div>
       </div>
     <% end %>
   </div>

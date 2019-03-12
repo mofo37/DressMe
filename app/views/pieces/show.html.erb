@@ -11,4 +11,10 @@
   <% end %>
 </p>
 
+<div>
+  <% @piece.tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
+</div>
+
 <%= link_to 'Edit', edit_piece_path(@piece), class: 'btn btn-primary' %>

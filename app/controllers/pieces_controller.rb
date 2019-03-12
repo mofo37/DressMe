@@ -25,10 +25,15 @@ class PiecesController < ApplicationController
   # POST /pieces
   # POST /pieces.json
   def create
+
+    tags = params[:tags]
     @piece = current_user.pieces.new(piece_params)
 
     respond_to do |format|
       if @piece.save
+        tags.split(',').each do |tag|
+          @piece.tags.create(name: tag.strip)
+        end
         format.html { redirect_to @piece, notice: 'Piece was successfully created.' }
         format.json { render :show, status: :created, location: @piece }
       else
@@ -41,6 +46,14 @@ class PiecesController < ApplicationController
   # PATCH/PUT /pieces/1
   # PATCH/PUT /pieces/1.json
   def update
+
+    tags = params[:tags]
+    @piece.taggings.destroy_all
+
+    tags.split(',').each do |tag|
+      @piece.tags.create(name: tag.strip)
+    end
+
     respond_to do |format|
       if @piece.update(piece_params)
         format.html { redirect_to @piece, notice: 'Piece was successfully updated.' }
@@ -70,6 +83,6 @@ class PiecesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def piece_params
-      params.require(:piece).permit(:name, images: [])
+      params.require(:piece).permit(:name, :tags, images: [])
     end
 end
