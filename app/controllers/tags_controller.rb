@@ -4,5 +4,6 @@ class TagsController < ApplicationController
   end
 
   def show
+    @tag = current_user.tags.find(params[:id])
   end
 end
