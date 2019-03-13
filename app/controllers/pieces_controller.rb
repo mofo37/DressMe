@@ -31,8 +31,9 @@ class PiecesController < ApplicationController
 
     respond_to do |format|
       if @piece.save
-        tags.split(',').each do |tag|
-          @piece.tags.create(name: tag.strip)
+        tags.split(',').each do |tag_name|
+          tag = Tag.find_or_create_by(name: tag_name.strip)
+          @piece.taggings.create(user_id: current_user.id, tag_id: tag.id)
         end
         format.html { redirect_to @piece, notice: 'Piece was successfully created.' }
         format.json { render :show, status: :created, location: @piece }
@@ -50,8 +51,9 @@ class PiecesController < ApplicationController
     tags = params[:tags]
     @piece.taggings.destroy_all
 
-    tags.split(',').each do |tag|
-      @piece.tags.create(name: tag.strip)
+    tags.split(',').each do |tag_name|
+      tag = Tag.find_or_create_by(name: tag_name.strip)
+      @piece.taggings.create(user_id: current_user.id, tag_id: tag.id)
     end
 
     respond_to do |format|

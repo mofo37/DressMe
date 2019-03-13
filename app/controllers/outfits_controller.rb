@@ -27,6 +27,7 @@ class OutfitsController < ApplicationController
   # POST /outfits
   # POST /outfits.json
   def create
+    
     tags = params[:tags]
     @outfit = current_user.outfits.new(outfit_params)
     
