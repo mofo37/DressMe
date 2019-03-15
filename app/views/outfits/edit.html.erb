@@ -1,11 +1,14 @@
 <h1>Editing Outfit</h1>
 
-<%= render 'form', outfit: @outfit %>
 
-<% @outfit.images.each do |image| %>
-  <%= image_tag image %>
-  <%= button_to "delete", delete_image_piece_path(image_id: image.id), method: :delete %>
-<% end %>
+<div class="outfit-padding">
+  <% @outfit.images.each do |image| %>
+    <%= image_tag image %>
+    <%= button_to "Delete Image", delete_image_piece_path(image_id: image.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <% end %>
+</div>
+
+<%= render 'form', outfit: @outfit %>
 
 <%= link_to 'Show', @outfit %> |
 <%= link_to 'Delete', @outfit, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>

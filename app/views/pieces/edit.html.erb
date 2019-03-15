@@ -1,12 +1,14 @@
 <h1>Editing Piece</h1>
 
+
+<div class="pieces-padding">
+  <% @piece.images.each do |image| %>
+    <%= image_tag image %>
+    <%= button_to "Delete Image", delete_image_piece_path(image_id: image.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <% end %>
+</div>
+
 <%= render 'form', piece: @piece %>
-
-<% @piece.images.each do |image| %>
-  <%= image_tag image %>
-  <%= button_to "delete", delete_image_piece_path(image_id: image.id), method: :delete %>
-<% end %>
-
 
 <%= link_to 'Show', @piece %> |
 <%= link_to 'Delete', @piece, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
