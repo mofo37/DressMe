@@ -39,15 +39,20 @@
   <button class="pieces-button btn btn-primary">Add Pieces</button>
 
   <div class="pieces">
-    <% @pieces.each do |piece| %>
-    <span>
-      <%= piece_check_box form: form, piece: piece %>
-      <%= form.label "piece_ids_#{piece.id}", class: "form-check-label" do %>
+    <% if @pieces.present? %>
+      <% @pieces.each do |piece| %>
+        
+        <%= piece_check_box form: form, piece: piece %>
+        
         <% piece.images.each do |image| %>
-          <%= image_tag image %>
+          <%= form.label "piece_ids_#{piece.id}", nil, class: "form-check-label" do %>
+            <%= image_tag image %>
+          <% end %>
         <% end %>
+
       <% end %>
-    </span>
+    <% else %>
+      <%= link_to 'Add pieces to your closet', new_piece_path %>
     <% end %>
   </div>
 
