@@ -2,5 +2,10 @@
 
 <%= render 'form', outfit: @outfit %>
 
+<% @outfit.images.each do |image| %>
+  <%= image_tag image %>
+  <%= button_to "delete", delete_image_piece_path(image_id: image.id), method: :delete %>
+<% end %>
+
 <%= link_to 'Show', @outfit %> |
 <%= link_to 'Delete', @outfit, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>

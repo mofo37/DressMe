@@ -81,6 +81,12 @@ class OutfitsController < ApplicationController
     end
   end
 
+  def delete_image
+    attachment = ActiveStorage::Attachment.find(params[:image_id])
+    attachment.purge
+    redirect_back(fallback_location: new_outfit_path)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_outfit

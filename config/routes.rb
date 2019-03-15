@@ -17,4 +17,10 @@ Rails.application.routes.draw do
     delete "delete_image/:image_id", action: :delete_image, as: 'delete_image'
     end
   end
+
+  resources :outfits do
+    member do
+    delete "delete_image/:image_id", action: :delete_image, as: 'delete_image'
+    end
+  end
 end
