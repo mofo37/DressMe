@@ -44,6 +44,7 @@ class PiecesController < ApplicationController
     end
   end
 
+  # TODO make tagging on update and create more idiomatic
   # PATCH/PUT /pieces/1
   # PATCH/PUT /pieces/1.json
   def update
@@ -75,6 +76,12 @@ class PiecesController < ApplicationController
       format.html { redirect_to pieces_url, notice: 'Piece was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def delete_image
+    attachment = ActiveStorage::Attachment.find(params[:image_id])
+    attachment.purge
+    redirect_back(fallback_location: new_piece_path)
   end
 
   private

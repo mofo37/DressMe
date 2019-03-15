@@ -11,4 +11,10 @@ Rails.application.routes.draw do
   resources :photos, only: :index
   resources :outfits
   resources :sessions
+
+  resources :pieces do
+    member do
+    delete "delete_image/:image_id", action: :delete_image, as: 'delete_image'
+    end
+  end
 end

@@ -48,7 +48,7 @@ class OutfitsController < ApplicationController
     end
   end
 
-# TODO make tagging on update and create more idiomatic
+  # TODO make tagging on update and create more idiomatic
   # PATCH/PUT /outfits/1
   # PATCH/PUT /outfits/1.json
   def update
