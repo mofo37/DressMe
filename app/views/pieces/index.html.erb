@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Pieces</h1>
+
+<span>
+  <%= link_to 'Create New Piece', new_piece_path %>
+</span>
+
   <div>
     <% @pieces.each do |piece| %>
       <div class="pieces-padding mb-5">
