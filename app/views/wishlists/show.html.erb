@@ -1,27 +1,3 @@
-<div class='row'>
-  <div class='col-12 col-md-6'>
-    <% if @wishlist.url.present? %>
-      <div class='mb-3'>
-        <%= link_to(image_tag(@wishlist.url), @wishlist.product_url, target: :blank) %>
-      </div>
-    <% end %>
-  </div><!-- .col -->
+<%= render 'header' %>
 
-  <div class='col-12 col-md-6'>
-    <p>
-      <%= link_to "View item web page →", @wishlist.product_url, class: 'btn btn-primary', target: :blank %>
-    </p>
-
-    <div>
-      <%= auto_link(simple_format(@wishlist.notes), :all, target: :blank) %>
-    </div>
-
-    <div>
-      <% @wishlist.tags.each do |tag| %>
-        <%= tag.name %>
-      <% end %>
-    </div>
-
-    <%= link_to '✏️ Edit item details', edit_wishlist_path(@wishlist), class: 'btn btn-outline-info' %>
-  </div><!-- .col -->
-</div><!-- .row -->
+<%= render @wishlist %>

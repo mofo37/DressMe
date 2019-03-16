@@ -1,0 +1,28 @@
+<div class='row mb-5'>
+  <div class='col-12 col-md-6'>
+    <% if wishlist.url.present? %>
+      <div class='mb-3'>
+        <%= link_to_unless_current(image_tag(wishlist.url), wishlist) %>
+      </div>
+    <% end %>
+  </div><!-- .col -->
+
+  <div class='col-12 col-md-6'>
+    <p>
+      <%= link_to "View item web page →", wishlist.product_url, class: 'btn btn-primary', target: :blank %>
+    </p>
+
+    <div>
+      <%= auto_link(simple_format(wishlist.notes), :all, target: :blank) %>
+    </div>
+
+    <div>
+      <% wishlist.tags.each do |tag| %>
+        <%= tag.name %>
+      <% end %>
+    </div>
+
+    <%= link_to '✏️ Edit item details', edit_wishlist_path(wishlist), class: 'btn btn-outline-info' %>
+    <%= link_to '👀 View item details', wishlist, class: 'btn btn-outline-info' if action_name == 'index' %>
+  </div><!-- .col -->
+</div><!-- .row -->

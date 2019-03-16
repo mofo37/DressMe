@@ -1,25 +1,3 @@
-<h1>Wishlist</h1>
+<%= render 'header' %>
 
-<%= link_to 'Create New Wishlist Item', new_wishlist_path, class: 'btn btn-primary' %>
-
-<hr>
-
-<% @wishlists.each do |wishlist| %>
-  <div>
-    <div>
-      <% if wishlist.url.present? %>
-        <%= link_to(image_tag(wishlist.url), wishlist) %>
-      <% end %>
-    </div>
-
-    <div><%= link_to auto_link(simple_format(wishlist.product_url), :all, target: :blank) %></div>
-
-    <div><%= wishlist.notes %></div>
-
-    <div>
-      <% wishlist.tags.each do |tag| %>
-        <%= tag.name %>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+<%= render @wishlists %>
