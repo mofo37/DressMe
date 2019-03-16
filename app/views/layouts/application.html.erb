@@ -20,15 +20,16 @@
     </main>
 
     <footer class="text-center mb-5 container">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav text-muted">
         <li>
           © 2018–<%= Time.now.year %>
         </li>
-          <% if current_user %>
-            <li>
-              <%= link_to "Sign Out", signout_path, class: "nav-link" %>
-            </li>
-          <% end %>
+
+        <% if current_user %>
+          <li>
+            <%= link_to "Sign Out", signout_path, class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
     </footer>
   </body>
