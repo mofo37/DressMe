@@ -1,15 +1,23 @@
 <% if current_user %>
-    <p>Welcome, <%= current_user.user_name %>.</br>Let's find the perfect outfit for you.</p>
-    <h1>Closet</h1>
-      <% @photos.each do |photo| %>
-        <% if photo.images.attached? %>
-          <%= link_to image_tag(url_for photo.images.first), photo %>
-        <% end %>  
-      <% end %>
+  <p>
+    Welcome, <%= current_user.user_name %>.<br>
+    Let’s find the perfect outfit for you.
+  </p>
+
+  <h1>Closet</h1>
+
+  <% @photos.each do |photo| %>
+    <% if photo.images.attached? %>
+      <%= link_to image_tag(url_for photo.images.first), photo %>
+    <% end %>
+  <% end %>
+
 <% else %>
+
   <div class="my-5 text-center">
     <h1><%= link_to_unless_current "DressMe", root_path %></h1>
     <%= link_to "Sign Up", signup_path, class: "btn btn-primary" %>
-    <%= link_to "Sign In", login_path, class: "btn btn-primary" %>
+    <%= link_to "Sign In", signin_path, class: "btn btn-primary" %>
   </div>
+
 <% end %>

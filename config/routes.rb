@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'photos#index'
-  get 'signup', to: 'users#new', as: 'signup'
-  get 'login', to: 'sessions#new', as: 'login'
+  get 'signup',  to: 'users#new',        as: 'signup'
+  get 'signin',  to: 'sessions#new',     as: 'signin'
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :tags, only: [:index, :show]
