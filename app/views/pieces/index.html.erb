@@ -1,12 +1,8 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Pieces</h1>
 
-<span>
-  <%= link_to 'Create New Piece', new_piece_path %>
-</span>
+<%= link_to 'Create New Piece', new_piece_path, class: 'btn btn-primary' %>
 
-<hr></hr>
+<hr>
 
   <div>
     <% @pieces.each do |piece| %>
