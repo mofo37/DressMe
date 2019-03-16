@@ -16,6 +16,18 @@
     <%= render "layouts/nav" %>
 
     <main class="container mb-5">
+      <% if alert.present? %>
+        <div class="alert alert-danger">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+
+      <% if notice.present? %>
+        <div class="alert alert-info">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
       <%= yield %>
     </main>
 
