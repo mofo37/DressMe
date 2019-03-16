@@ -1,5 +1,22 @@
-<h1>Editing Wishlist</h1>
+<h1>Edit wishlist item details</h1>
 
 <%= render 'form', wishlist: @wishlist %>
 
-<td><%= link_to 'Delete', @wishlist, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+<div class='row'>
+  <div id='danger-zone' class='offset-md-6 col-12 col-md-6'>
+    <div class='card border-danger my-5'>
+      <div class='card-header bg-danger text-white'>The Danger Zone</div>
+
+      <div class='card-body text-danger'>
+        <h5 class='card-title'>Delete this item from your wishlist?</h5>
+
+        <p class='card-text'>
+          If you click on this button, your wishlist item will be immediately deleted.
+          <b>THERE IS NO UNDO.</b>
+        </p>
+
+        <%= link_to 'Delete', @wishlist, method: :delete, data: { confirm: 'Are you sure you’re sure?' }, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>
