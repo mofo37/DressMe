@@ -49,10 +49,10 @@ class WishlistsController < ApplicationController
   def update
 
     tags = params[:tags]
-    @piece.taggings.destroy_all
+    @wishlist.taggings.destroy_all
 
     tags.split(',').each do |tag|
-      @piece.tags.create(name: tag.strip)
+      @wishlist.tags.create(name: tag.strip)
     end
 
     respond_to do |format|

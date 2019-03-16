@@ -4,23 +4,22 @@
 
 <hr>
 
-<div>
+<% @wishlists.each do |wishlist| %>
   <div>
-    <% @wishlists.each do |wishlist| %>
-      <div>
-        <div>
-          <% if wishlist.url.present? %>
-            <%= link_to(image_tag(wishlist.url), wishlist) %>
-          <% end %>
-        </div>
-        <div><%= link_to auto_link(simple_format(wishlist.product_url), :all, target: :blank) %></div>
-        <div><%= wishlist.notes %></div>
-        <div>
-          <% wishlist.tags.each do |tag| %>
-            <%= tag.name %>
-          <% end %>
-        </div>
+    <div>
+      <% if wishlist.url.present? %>
+        <%= link_to(image_tag(wishlist.url), wishlist) %>
       <% end %>
     </div>
-  </div>
+
+    <div><%= link_to auto_link(simple_format(wishlist.product_url), :all, target: :blank) %></div>
+
+    <div><%= wishlist.notes %></div>
+
+    <div>
+      <% wishlist.tags.each do |tag| %>
+        <%= tag.name %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

@@ -1,26 +1,27 @@
-<p>
-  <strong>URL:</strong>
-    <div>
-      <%= image_tag(@wishlist.url) if @wishlist.url.present? %>
-    </div>
-</p>
-<p>
-  <strong>Product URL:</strong>
-    <div>
-      <%= h auto_link(simple_format(@wishlist.product_url)) %>
-    </div>
-</p>
-<p>
-  <strong>Notes:</strong>
-    <div>
-      <%= @wishlist.notes %>
-    </div>
-</p>
+<div class='row'>
+  <div class='col-12 col-md-6'>
+    <% if @wishlist.url.present? %>
+      <div class='mb-3'>
+        <%= link_to(image_tag(@wishlist.url), @wishlist.product_url, target: :blank) %>
+      </div>
+    <% end %>
+  </div><!-- .col -->
 
-<div>
-  <% @wishlist.tags.each do |tag| %>
-    <%= tag.name %>
-  <% end %>
-</div>
+  <div class='col-12 col-md-6'>
+    <p>
+      <%= link_to "View item web page →", @wishlist.product_url, class: 'btn btn-primary', target: :blank %>
+    </p>
 
-<%= link_to 'Edit', edit_wishlist_path(@wishlist), class: 'btn btn-primary' %>
+    <div>
+      <%= auto_link(simple_format(@wishlist.notes), :all, target: :blank) %>
+    </div>
+
+    <div>
+      <% @wishlist.tags.each do |tag| %>
+        <%= tag.name %>
+      <% end %>
+    </div>
+
+    <%= link_to '✏️ Edit item details', edit_wishlist_path(@wishlist), class: 'btn btn-outline-info' %>
+  </div><!-- .col -->
+</div><!-- .row -->
