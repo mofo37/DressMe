@@ -1,38 +1,13 @@
 <%= render 'header' %>
 
-<div>
-  <% @outfits.each do |outfit| %>
-    <div>
-      <h2 class='font-weight-light'><%= link_to outfit.name, outfit %></h2>
-      <div>
-        <div>
-          <% if outfit.images.attached? %>
-            <% outfit.images.each do |image|%>
-              <%= link_to image_tag(url_for(image), class: "outfit-in-outfit"), outfit %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-
-      <div>
-        <div>
-          <% outfit.pieces.each do |piece| %>
-            <%= link_to image_tag(piece.images.first, class: "piece-in-outfit"), outfit %>
-          <% end %>
-        </div>
-      </div>
-
-      <div><%= link_to outfit.formality, outfit %></div>
-
-      <div>
-        <%= link_to "#{ "Not" unless outfit.work? } Work Appropriate", outfit %>
-      </div>
-
-      <div>
-        <% outfit.tags.each do |tag| %>
-          <%= tag.name %>
+<% @outfits.in_groups_of(4).each do |group| %>
+  <div class='row mb-5'>
+    <% group.each do |outfit| %>
+      <div class='col-12 col-md-3'>
+        <% if outfit.present? %>
+          <%= link_to_unless_current image_tag(outfit.images.first, class: 'mb-3'), outfit %>
         <% end %>
-      </div>
-    </div>
-  <% end %>
-</div>
+      </div><!-- .col -->
+    <% end %>
+  </div><!-- .row -->
+<% end %>
