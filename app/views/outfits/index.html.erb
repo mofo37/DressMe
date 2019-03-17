@@ -1,13 +1,15 @@
-<h1>Outfits</h1>
+<h1 class='font-weight-light'>
+  Outfits
+</h1>
 
-<%= link_to 'Create New Outfit', new_outfit_path, class: 'btn btn-primary' %>
+<%= link_to 'Create New Outfit', new_outfit_path, class: 'btn btn-outline-primary' %>
 
 <hr>
 
 <div>
   <% @outfits.each do |outfit| %>
     <div class="outfit-padding">
-      <h2><%= link_to outfit.name, outfit %></h2>
+      <h2 class='font-weight-light'><%= link_to outfit.name, outfit %></h2>
       <div>
         <div>
           <% if outfit.images.attached? %>
