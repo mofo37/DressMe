@@ -1,7 +1,7 @@
 <%= form_with(model: piece, local: true) do |form| %>
   <% if piece.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(piece.errors.count, "error") %> prohibited this piece from being saved:</h2>
+    <div id='error_explanation'>
+      <h2><%= pluralize(piece.errors.count, 'error') %> prohibited this piece from being saved:</h2>
 
       <ul>
         <% piece.errors.full_messages.each do |message| %>
@@ -11,23 +11,46 @@
     </div>
   <% end %>
 
-  <div class="form-group">
+  <div class='form-group mb-5'>
     <%= form.label :name %>
-    <%= form.text_field :name, class: "form-control"%>
+    <%= form.text_field :name, class: 'form-control form-control-lg', autofocus: action_name == 'new' %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :images, "Uploaded Image" %><br>
-    <%= form.file_field :images, multiple: true %>
+  <div class='form-group mb-4'>
+    <%= form.label :images, 'Upload one or many images' %><br>
+    <%= form.file_field :images, multiple: true, accept: 'image/png,image/gif,image/jpeg' %>
+
+    <p class='form-text text-muted mt-3'>
+      Accepted formats: <code>JPEGs</code>, <code>PNGs</code>, <code>GIFs</code>, <code>animated GIFs</code>
+    </p>
   </div>
 
-  <div>
-    <%= form.label :tags %>
-    <%= text_field_tag :tags, @piece.tags.map {|tag| tag.name }.join(", ") %>
+  <div class='row mb-4'>
+    <% @piece.images.in_groups_of(4).each do |group| %>
+      <% group.each do |image| %>
+        <div class='col-6 col-md-3'>
+          <% if image.present? %>
+            <%= image_tag image, class: 'mb-3' %>
+
+            <%# TODO: this shouldn't be a link_to / GET, make AJAX %>
+            <%= link_to 'Delete image', delete_image_piece_path(image_id: image.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger mb-5' %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
-  <div class="actions mt-4">
-    <%= form.submit class: "btn btn-success btn-lg mr-3" %>
+  <div class='form-group mb-4'>
+    <%= form.label :tags %><br>
+    <%= text_field_tag :tags, @piece.tags.map {|tag| tag.name }.join(', '), class: 'form-control form-control-lg' %>
+
+    <p class='form-text text-muted'>
+      Comma separated. Example: <code>black, ball gown, shiny</code>
+    </p>
+  </div>
+
+  <div class='actions my-5'>
+    <%= form.submit 'Save piece', class: 'btn btn-success btn-lg mr-3' %>
     <%= link_to 'Cancel', pieces_path %>
   </div>
 <% end %>

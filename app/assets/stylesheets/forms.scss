@@ -1,6 +1,10 @@
+label {
+  font-weight: bold;
+}
+
 input[type="file"]::-webkit-file-upload-button {
   @extend .btn;
-  @extend .btn-primary;
+  @extend .btn-outline-primary;
 }
 
 .range-wrapper {

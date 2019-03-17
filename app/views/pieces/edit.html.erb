@@ -1,14 +1,27 @@
-<h1>Editing Piece</h1>
+<h1>
+  Editing piece:
+  <%= link_to @piece.name, @piece %>
+</h1>
 
-
-<div class="pieces-padding">
-  <% @piece.images.each do |image| %>
-    <%= image_tag image %>
-    <%= button_to "Delete Image", delete_image_piece_path(image_id: image.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-  <% end %>
-</div>
+<hr>
 
 <%= render 'form', piece: @piece %>
 
-<%= link_to 'Show', @piece %> |
-<%= link_to 'Delete', @piece, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+<div class='row'>
+  <div id='danger-zone' class='offset-md-6 col-12 col-md-6'>
+    <div class='card border-danger my-5'>
+      <div class='card-header bg-danger text-white'>The Danger Zone</div>
+
+      <div class='card-body text-danger'>
+        <h5 class='card-title'>Delete this item from your closet?</h5>
+
+        <p class='card-text'>
+          If you click on this button, your piece will be immediately deleted.
+          <b>THERE IS NO UNDO.</b>
+        </p>
+
+        <%= link_to 'Delete', @piece, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>
