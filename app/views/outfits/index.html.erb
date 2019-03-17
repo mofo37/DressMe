@@ -1,14 +1,8 @@
-<h1 class='font-weight-light'>
-  Outfits
-</h1>
-
-<%= link_to 'Create New Outfit', new_outfit_path, class: 'btn btn-outline-primary' %>
-
-<hr>
+<%= render 'header' %>
 
 <div>
   <% @outfits.each do |outfit| %>
-    <div class="outfit-padding">
+    <div>
       <h2 class='font-weight-light'><%= link_to outfit.name, outfit %></h2>
       <div>
         <div>

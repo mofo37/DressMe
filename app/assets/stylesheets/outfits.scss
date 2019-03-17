@@ -1,17 +1,7 @@
 input[type=checkbox]:checked + label img {
   outline: 7px solid hotpink;
-  margin: 10px;
-  padding: 5px;
 }
 
 .outfit-in-outfit {
   max-width: 400px;
-}
-
-.piece-in-outfit {
-  max-width: 100px;
-}
-
-.outfit-padding {
-  padding-bottom: 20px;
 }

@@ -10,17 +10,19 @@
       <% @piece.images[1..-1].in_groups_of(4).each do |group| %>
         <div class='row mb-4'>
           <% group.each do |image| %>
+
             <div class='col-6 col-md-3'>
               <% if image.present? %>
                 <%= link_to_unless_current image_tag(image), @piece %>
               <% end %>
             </div><!-- .col -->
+
           <% end %>
         </div><!-- .row -->
       <% end %>
     <% end %>
 
-    <h2><%= @piece.name %></h2>
+    <h2 class='font-weight-light'><%= @piece.name %></h2>
 
     <div class='mb-5'>
       <p>

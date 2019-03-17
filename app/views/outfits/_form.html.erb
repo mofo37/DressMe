@@ -19,13 +19,13 @@
   <div class="row">
     <div class="col-12 col-md-6">
       <div class='form-group mb-5'>
-        <%= form.label :formality, 'On a scale of 1-10, how fancy is this outfit?' %><br>
+        <%= form.label :formality, 'On a scale of 1-10, how formal is this outfit?' %><br>
 
         <%= form.range_field :formality, class: 'range-wrapper', min: 1, max: 10, value: 5 %>
         <span class='js-formality-text h3'>5</span>
 
         <p class='form-text text-muted'>
-          1 is the least fancy. 10 is the most fancy.
+          1 is the least formal. 10 is the most formal.
         </p>
       </div>
     </div>
