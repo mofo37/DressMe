@@ -1,4 +1,10 @@
-<h1><%= @tag.name %></h1>
+<h1 class='font-weight-light'>
+  <%= link_to 'Tags', tags_path %>:
+
+  <%= @tag.name %>
+</h1>
+
+<hr>
 
 <% @items.in_groups_of(4).each do |group| %>
   <div class='row mb-4'>
