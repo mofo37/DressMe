@@ -34,5 +34,27 @@
       <%= link_to '✏️ Edit piece details', edit_piece_path(@piece), class: 'btn btn-sm btn-outline-info mb-2' %>
     </div>
 
+    <% if @piece.outfits.present? %>
+      <div class="card border-secondary">
+        <div class="card-header">Outfits that use this piece</div>
+
+        <div class="card-body">
+          <% @piece.outfits.in_groups_of(4).each_with_index do |group, index| %>
+            <div class="row <%= 'mb-3' unless index.zero? %>">
+              <% group.each do |piece| %>
+
+                <div class="col-3">
+                  <% if piece.present? %>
+                    <%= link_to image_tag(piece.images.first), piece %>
+                  <% end %>
+                </div><!-- .col -->
+
+              <% end %>
+            </div><!-- .row -->
+          <% end %>
+        </div><!-- .card-body -->
+      </div><!-- .card-header -->
+    <% end %>
+
   </div><!-- .col -->
 </div><!-- .row -->

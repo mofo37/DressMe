@@ -53,29 +53,27 @@
       </p>
     </div>
 
+    <% if @outfit.pieces.present? %>
+      <div class="card border-secondary">
+        <div class="card-header">Pieces used in this outfit</div>
 
+        <div class="card-body">
+          <% @outfit.pieces.in_groups_of(4).each_with_index do |group, index| %>
+            <div class="row <%= 'mb-3' unless index.zero? %>">
+              <% group.each do |piece| %>
 
-    <div class="card border-secondary">
-      <div class="card-header">Pieces in this outfit</div>
+                <div class="col-3">
+                  <% if piece.present? %>
+                    <%= link_to image_tag(piece.images.first), piece %>
+                  <% end %>
+                </div><!-- .col -->
 
-      <div class="card-body">
-        <% @outfit.pieces.in_groups_of(4).each_with_index do |group, index| %>
-          <div class="row <%= 'mb-3' unless index.zero? %>">
-            <% group.each do |piece| %>
-
-              <div class="col-3">
-                <% if piece.present? %>
-                  <%= link_to image_tag(piece.images.first, class: 'piece-in-outfit'), piece %>
-                <% end %>
-              </div><!-- .col -->
-
-            <% end %>
-          </div><!-- .row -->
-        <% end %>
-      </div><!-- .card-body -->
-    </div><!-- .card-header -->
-
-
+              <% end %>
+            </div><!-- .row -->
+          <% end %>
+        </div><!-- .card-body -->
+      </div><!-- .card-header -->
+    <% end %>
 
   </div><!-- .col -->
 </div><!-- .row -->
