@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   def index
-    @tags = current_user.tags.uniq
+    @tags = current_user.tags.uniq.sort_by { |tag| tag.name.downcase }
   end
 
   def show
