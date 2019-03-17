@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # Signed in homepage
-  root to: 'closet#index'
+  root to: 'pieces#index'
 
   get 'signup',  to: 'users#new',        as: 'signup'
   get 'signin',  to: 'sessions#new',     as: 'signin'
@@ -9,15 +9,16 @@ Rails.application.routes.draw do
   resources :tags, only: [:index, :show]
   resources :wishlists
   resources :users
-  resources :pieces
   resources :outfits
   resources :sessions
 
-  resources :pieces do
+  resources :pieces, except: [:index] do
     member do
       delete "delete_image/:image_id", action: :delete_image, as: 'delete_image'
     end
   end
+
+  get 'pieces', to: redirect('/')
 
   resources :outfits do
     member do
