@@ -1,0 +1,16 @@
+<div class='mb-5'>
+  <h1><%= link_to_unless_current piece.name, piece %></h1>
+
+  <%= render 'photos', piece: piece %>
+
+  <p>
+    <% piece.tags.each do |tag| %>
+      <%= link_to tag.name, tag, class: 'badge badge-secondary' %>
+    <% end %>
+  </p>
+
+  <%= link_to '✏️ Edit piece details', edit_piece_path(piece), class: 'btn btn-outline-info' %>
+  <%= link_to '👀 View piece details', piece, class: 'btn btn-outline-info' if action_name == 'index' %>
+</div>
+
+<hr class='mb-5'>

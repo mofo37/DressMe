@@ -25,20 +25,7 @@
     </p>
   </div>
 
-  <div class='row mb-4'>
-    <% @piece.images.in_groups_of(4).each do |group| %>
-      <% group.each do |image| %>
-        <div class='col-6 col-md-3'>
-          <% if image.present? %>
-            <%= image_tag image, class: 'mb-3' %>
-
-            <%# TODO: this shouldn't be a link_to / GET, make AJAX %>
-            <%= link_to 'Delete image', delete_image_piece_path(image_id: image.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger mb-5' %>
-          <% end %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <%= render 'photos', piece: @piece %>
 
   <div class='form-group mb-4'>
     <%= form.label :tags %><br>
