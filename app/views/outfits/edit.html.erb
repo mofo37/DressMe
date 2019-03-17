@@ -1,14 +1,27 @@
-<h1>Editing Outfit</h1>
+<h1 class='font-weight-light'>
+  Editing outfit:
+  <%= link_to @outfit.name, @outfit %>
+</h1>
 
-
-<div class="outfit-padding">
-  <% @outfit.images.each do |image| %>
-    <%= image_tag image %>
-    <%= button_to "Delete Image", delete_image_piece_path(image_id: image.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-  <% end %>
-</div>
+<hr>
 
 <%= render 'form', outfit: @outfit %>
 
-<%= link_to 'Show', @outfit %> |
-<%= link_to 'Delete', @outfit, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+<div class='row'>
+  <div id='danger-zone' class='offset-md-6 col-12 col-md-6'>
+    <div class='card border-danger my-5'>
+      <div class='card-header bg-danger text-white'>The Danger Zone</div>
+
+      <div class='card-body text-danger'>
+        <h5 class='card-title'>Delete this outfit?</h5>
+
+        <p class='card-text'>
+          If you click on this button, your outfit will be immediately deleted.
+          <b>THERE IS NO UNDO.</b>
+        </p>
+
+        <%= link_to 'Delete', @outfit, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>

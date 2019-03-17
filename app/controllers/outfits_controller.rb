@@ -23,7 +23,7 @@ class OutfitsController < ApplicationController
     @outfit = current_user.outfits.new(outfit_params)
 
     if @outfit.save
-      tags.split(',').each do |tag|
+      tags.split(',').each do |tag_name|
         tag = Tag.find_or_create_by(name: tag_name.strip)
         @outfit.taggings.create(user_id: current_user.id, tag_id: tag.id)
       end

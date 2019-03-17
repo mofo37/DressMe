@@ -1,7 +1,7 @@
 <%= form_with(model: outfit, local: true) do |form| %>
   <% if outfit.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(outfit.errors.count, "error") %> prohibited this outfit from being saved:</h2>
+    <div id='error_explanation'>
+      <h2><%= pluralize(outfit.errors.count, 'error') %> prohibited this outfit from being saved:</h2>
 
       <ul>
         <% outfit.errors.full_messages.each do |message| %>
@@ -11,58 +11,101 @@
     </div>
   <% end %>
 
-  <div class="form-group">
+  <div class='form-group mb-5'>
     <%= form.label :name %>
-    <%= form.text_field :name, class: "form-control" %>
+    <%= form.text_field :name, class: 'form-control form-control-lg' %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :image, "Want to add pics of you in your full ensemble? Choose files below!" %><br>
-    <%= form.file_field :images, multiple: true %>
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <div class='form-group mb-5'>
+        <%= form.label :formality, 'On a scale of 1-10, how fancy is this outfit?' %><br>
+
+        <%= form.range_field :formality, class: 'range-wrapper', min: 1, max: 10, value: 5 %>
+        <span class='js-formality-text h3'>5</span>
+
+        <p class='form-text text-muted'>
+          1 is the least fancy. 10 is the most fancy.
+        </p>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6">
+      <div class='form-group mb-5'>
+        <%= form.label :work, 'Can you wear this outfit to work?' %><br>
+
+        <%= form.radio_button :work, true, class: 'sr-only' %>
+        <%= form.label 'work_true', 'Yes' %>
+        <%= form.radio_button :work, false, class: 'sr-only' %>
+        <%= form.label 'work_false', 'No' %>
+      </div>
+    </div>
   </div>
 
-  <div class="form-check mb-3">
-    <%= form.radio_button :work, true, class: "form-check-input" %>
-    <%= form.label :work, "I can wear this outfit to work", class: "form-check-label" %>
-  </div>
-  <div class="form-check mb-3">
-    <%= form.radio_button :work, false, class: "form-check-input" %>
-    <%= form.label :work, "I cannot wear this outfit to work", class: "form-check-label" %>
-  </div>
+  <div class='form-group mb-5'>
+    <%= form.label :pieces, 'What pieces from your closet make up this outfit?' %><br>
 
-  <div class="form-group">
-    <%= form.label :formality, "Use the slider to show how fancy this outfit is from 1-10" %>
-    <%= form.range_field :formality, class: "form-control range-wrapper", min: 1, max: 10, value: 5 %>
-  </div>
-  <div class="text">5</div>
+    <% @pieces.in_groups_of(12).each_with_index do |group, index| %>
+      <div class='row mb-3 <%= 'js-more-pieces' unless index.zero? %>'>
+        <% group.each do |piece| %>
 
-  <button class="pieces-button btn btn-primary">Add Pieces</button>
+        <div class='col-3 col-md-2 col-lg-1 mb-3'>
+          <% if piece.present? %>
+            <%= piece_check_box form: form, piece: piece %>
 
-  <div class="pieces">
-    <% if @pieces.present? %>
-      <% @pieces.each do |piece| %>
-        
-        <%= piece_check_box form: form, piece: piece %>
-        
-        <% piece.images.each do |image| %>
-          <%= form.label "piece_ids_#{piece.id}", nil, class: "form-check-label" do %>
-            <%= image_tag image %>
+            <%= form.label "piece_ids_#{piece.id}", nil, class: 'form-check-label' do %>
+              <%= image_tag piece.images.first %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div><!-- .col -->
 
-      <% end %>
-    <% else %>
-      <%= link_to 'Add pieces to your closet', new_piece_path %>
+        <% end %>
+      </div><!-- .row -->
+    <% end %>
+
+    <% if @pieces.length > 12 %>
+      <button class='js-pieces-button btn btn-outline-primary'>
+        Show
+        <span class='js-pieces-show-more'>more…</span>
+        <span class='js-pieces-show-less' style='display: none'>less…</span>
+      </button>
+    <% end %>
+
+    <% if @pieces.blank? %>
+      <%= link_to 'Add some pieces to your closet first →', new_piece_path, class: 'btn btn-outline-primary' %>
     <% end %>
   </div>
 
-  <div>
-    <%= form.label :tags %>
-    <%= text_field_tag :tags, @outfit.tags.map {|tag| tag.name }.join(", ") %>
+  <div class='form-group mb-5'>
+    <%= form.label :images, 'Add photos of you in this outfit' %><br>
+    <%= form.file_field :images, multiple: true %>
   </div>
 
-  <div class="actions mt-4">
-    <%= form.submit class: "btn btn-success btn-lg mr-3" %>
+
+  <div class='row mb-4'>
+    <% @outfit.images.in_groups_of(4).each do |group| %>
+      <% group.each do |image| %>
+        <div class='col-6 col-md-3'>
+          <% if image.present? %>
+            <%= link_to_unless_current image_tag(image, class: 'mb-3'), outfit, target: '_blank' %>
+
+            <%# TODO: this shouldn't be a link_to / GET, make AJAX %>
+            <%= link_to 'Delete image',
+                        delete_image_outfit_path(image_id: image.id),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' },
+                        class: 'btn btn-outline-danger mb-5' %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+  <%= render 'forms/tags_field', form: form, resource: @outfit %>
+
+  <div class='actions my-5'>
+    <%= form.submit 'Save outfit', class: 'btn btn-success btn-lg mr-3' %>
     <%= link_to 'Cancel', outfits_path %>
   </div>
 <% end %>

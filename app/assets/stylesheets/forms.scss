@@ -2,11 +2,23 @@ label {
   font-weight: bold;
 }
 
-input[type="file"]::-webkit-file-upload-button {
+input[type=file]::-webkit-file-upload-button {
   @extend .btn;
   @extend .btn-outline-primary;
 }
 
 .range-wrapper {
-  width: 50%;
+  width: 75%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+input[type=radio] + label {
+  @extend .btn;
+  @extend .btn-outline-secondary;
+}
+
+input[type=radio]:checked + label {
+  @extend .btn;
+  @extend .btn-dark;
 }
