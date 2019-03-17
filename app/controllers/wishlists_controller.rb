@@ -18,14 +18,9 @@ class WishlistsController < ApplicationController
   end
 
   def create
-    tags = params[:tags]
     @wishlist = current_user.wishlists.new(wishlist_params)
 
     if @wishlist.save
-      tags.split(',').each do |tag|
-        @wishlist.tags.create(name: tag.strip)
-      end
-
       redirect_to @wishlist, notice: 'Wishlist was successfully created.'
     else
       render :new
@@ -33,14 +28,6 @@ class WishlistsController < ApplicationController
   end
 
   def update
-
-    tags = params[:tags]
-    @wishlist.taggings.destroy_all
-
-    tags.split(',').each do |tag|
-      @wishlist.tags.create(name: tag.strip)
-    end
-
     if @wishlist.update(wishlist_params)
       redirect_to @wishlist, notice: 'Wishlist was successfully updated.'
     else
@@ -60,6 +47,6 @@ class WishlistsController < ApplicationController
   end
 
   def wishlist_params
-    params.require(:wishlist).permit(:url, :notes, :product_url, :tags)
+    params.require(:wishlist).permit(:url, :notes, :product_url)
   end
 end
