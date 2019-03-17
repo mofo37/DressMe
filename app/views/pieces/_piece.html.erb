@@ -1,16 +1,30 @@
+<style>
+  img {width: 100%;}
+</style>
+
+<%= link_to_unless_current image_tag(piece.images.first, class: 'mb-3'), piece %>
+
+<div class='row mb-4'>
+  <% piece.images[1..-1].in_groups_of(4).each do |group| %>
+    <% group.each do |image| %>
+      <div class='col-6 col-md-3'>
+        <% if image.present? %>
+          <%= link_to_unless_current image_tag(image), piece %>
+        <% end %>
+      </div><!-- .col -->
+    <% end %>
+  <% end %>
+</div><!-- .row -->
+
+<h2 class='h3'><%= link_to_unless_current piece.name, piece %></h2>
+
 <div class='mb-5'>
-  <h1><%= link_to_unless_current piece.name, piece %></h1>
-
-  <%= render 'photos', piece: piece %>
-
   <p>
     <% piece.tags.each do |tag| %>
       <%= link_to tag.name, tag, class: 'badge badge-secondary' %>
     <% end %>
   </p>
 
-  <%= link_to '✏️ Edit piece details', edit_piece_path(piece), class: 'btn btn-outline-info' %>
-  <%= link_to '👀 View piece details', piece, class: 'btn btn-outline-info' if action_name == 'index' %>
+  <%= link_to '✏️ Edit piece details', edit_piece_path(piece), class: 'btn btn-sm btn-outline-info' %>
+  <%= link_to '👀 View piece details', piece, class: 'btn btn-sm btn-outline-info' if action_name == 'index' %>
 </div>
-
-<hr class='mb-5'>

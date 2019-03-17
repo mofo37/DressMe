@@ -1,3 +1,13 @@
 <%= render 'header' %>
 
-<%= render @pieces %>
+<% @pieces.in_groups_of(2).each do |group| %>
+  <div class='row mb-5'>
+    <% group.each do |piece| %>
+      <div class='col-12 col-md-6'>
+        <% if piece.present? %>
+          <%= render piece %>
+        <% end %>
+      </div><!-- .col -->
+    <% end %>
+  </div><!-- .row -->
+<% end %>
