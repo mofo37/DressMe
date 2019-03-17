@@ -1,7 +1,42 @@
+<style>
+  img {width: 100%;}
+</style>
+
 <%= render 'header' %>
 
 <div class='row'>
   <div class='col-12 col-md-6'>
-    <%= render @piece %>
+    <%= link_to_unless_current image_tag(@piece.images.first, class: 'mb-3'), @piece %>
+  </div><!-- .col -->
+
+  <div class='col-12 col-md-6'>
+    <% if @piece.images.length > 1 %>
+      <% @piece.images[1..-1].in_groups_of(4).each do |group| %>
+        <div class='row mb-4'>
+          <% group.each do |image| %>
+            <div class='col-6 col-md-3'>
+              <% if image.present? %>
+                <%= link_to_unless_current image_tag(image), @piece %>
+              <% end %>
+            </div><!-- .col -->
+          <% end %>
+        </div><!-- .row -->
+      <% end %>
+    <% end %>
+
+      <h2><%= @piece.name %></h2>
+
+      <div class='mb-5'>
+        <p>
+          <% @piece.tags.each do |tag| %>
+            <%= link_to tag.name, tag, class: 'badge badge-secondary' %>
+          <% end %>
+        </p>
+
+        <%= link_to '✏️ Edit piece details', edit_piece_path(@piece), class: 'btn btn-sm btn-outline-info mb-2' %>
+        <%= link_to '👀 View piece details', @piece, class: 'btn btn-sm btn-outline-info' if action_name == 'index' %>
+      </div>
+
+
   </div><!-- .col -->
 </div><!-- .row -->

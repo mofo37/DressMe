@@ -1,11 +1,11 @@
 <%= render 'header' %>
 
-<% @pieces.in_groups_of(2).each do |group| %>
+<% @pieces.in_groups_of(4).each do |group| %>
   <div class='row mb-5'>
     <% group.each do |piece| %>
-      <div class='col-12 col-md-6'>
+      <div class='col-12 col-md-3'>
         <% if piece.present? %>
-          <%= render piece %>
+          <%= link_to_unless_current image_tag(piece.images.first, class: 'mb-3'), piece %>
         <% end %>
       </div><!-- .col -->
     <% end %>
