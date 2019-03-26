@@ -9,4 +9,10 @@ module OutfitsHelper
                    piece.id,
                    nil
   end
+
+  def image_tag_for item, options = {}
+    url = item.images.first.presence || 'https://via.placeholder.com/150'
+    image_tag url, options 
+  end
 end
+

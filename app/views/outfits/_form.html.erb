@@ -54,7 +54,7 @@
             <%= piece_check_box form: form, piece: piece %>
 
             <%= form.label "piece_ids_#{piece.id}", nil, class: 'form-check-label' do %>
-              <%= image_tag piece.images.first %>
+              <%= image_tag_for piece %>
             <% end %>
           <% end %>
         </div><!-- .col -->
