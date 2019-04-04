@@ -1,7 +1,7 @@
 <% if current_user %>
   <p>
     Welcome, <%= current_user.user_name %>.<br>
-    Let’s find the perfect outfit for you.
+    <%= link_to "Let’s find the perfect outfit for you", new_piece_path %>
   </p>
 
   <h1>Closet</h1>
