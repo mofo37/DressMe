@@ -4,7 +4,6 @@
     <%= link_to "Let’s find the perfect outfit for you", new_piece_path %>
   </p>
 
-  <h1>Closet</h1>
     <div class='row mb-5'>
       <% @items.in_groups_of(4).each do |group| %>
         <% group.each do |item| %>
