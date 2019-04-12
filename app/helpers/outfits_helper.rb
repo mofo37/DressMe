@@ -11,7 +11,12 @@ module OutfitsHelper
   end
 
   def image_tag_for item, options = {}
-    url = item.images.first.presence || 'https://via.placeholder.com/150'
+    if item.images.first.present?
+      url = item.images.first.variant(auto_orient: true)
+    else
+      url = 'https://via.placeholder.com/150'
+    end
+    
     image_tag url, options 
   end
 end
