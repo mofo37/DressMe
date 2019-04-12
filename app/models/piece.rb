@@ -7,4 +7,14 @@ class Piece < ApplicationRecord
   has_many :tags, through: :taggings
 
   has_many_attached :images
+
+  after_save :auto_orient
+
+  def auto_orient
+    manipulate! do |image|
+      image.auto_orient
+      image
+    end
+  end
+  
 end
