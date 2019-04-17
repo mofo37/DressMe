@@ -21,7 +21,7 @@ class PiecesController < ApplicationController
     @piece = current_user.pieces.new(piece_params)
 
     if @piece.save
-      tags.split(',').each do |tag_name|
+      tags.downcase.split(',').each do |tag_name|
         tag = Tag.find_or_create_by(name: tag_name.strip)
         @piece.taggings.create(user_id: current_user.id, tag_id: tag.id)
       end
@@ -37,7 +37,7 @@ class PiecesController < ApplicationController
     tags = params[:tags]
     @piece.taggings.destroy_all
 
-    tags.split(',').each do |tag_name|
+    tags.downcase.split(',').each do |tag_name|
       tag = Tag.find_or_create_by(name: tag_name.strip)
       @piece.taggings.create(user_id: current_user.id, tag_id: tag.id)
     end
