@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def authorize
-    redirect_to signin_url, alert: "Not authorized" if current_user.nil?
+    if current_user.nil?
+      redirect_to signin_url
+    end
   end
 end
