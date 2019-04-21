@@ -11,7 +11,7 @@
     <% group.each do |image, item| %>
       <div class='col'>
         <% if item.present? %>
-          <%= link_to image_tag(image), item %>
+          <%= link_to image_tag(image.variant(auto_orient: true)), item %>
         <% end %>
       </div>
     <% end %>
