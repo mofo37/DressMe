@@ -3,7 +3,7 @@ class PiecesController < ApplicationController
   before_action :set_piece, only: [:show, :edit, :update, :destroy]
 
   def index
-    @pieces = current_user.pieces
+    @pieces = current_user.pieces.list_order
   end
 
   def show

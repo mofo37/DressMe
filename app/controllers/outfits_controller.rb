@@ -3,7 +3,7 @@ class OutfitsController < ApplicationController
   before_action :set_outfit, only: [:show, :edit, :update, :destroy]
 
   def index
-    @outfits = current_user.outfits
+    @outfits = current_user.outfits.list_order
   end
 
   def show

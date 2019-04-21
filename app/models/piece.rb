@@ -7,4 +7,6 @@ class Piece < ApplicationRecord
   has_many :tags, through: :taggings
 
   has_many_attached :images
+
+  scope :list_order, -> {order(created_at: :desc)}
 end
