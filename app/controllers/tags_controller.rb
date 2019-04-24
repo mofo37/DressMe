@@ -4,10 +4,12 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tag = current_user.tags.find(params[:id])
+    @tag = Tag.find(params[:id])
+    outfits = @tag.outfits.where(user_id: current_user.id)
+    pieces = @tag.pieces.where(user_id: current_user.id)
 
     @items = {}
-    [@tag.outfits, @tag.pieces].flatten.each do |item|
+    [outfits, pieces].flatten.each do |item|
       item.images.each do |image|
         @items[image] = item
       end
