@@ -8,12 +8,11 @@ class TagsController < ApplicationController
     outfits = @tag.outfits.by(current_user)
     pieces = @tag.pieces.by(current_user)
 
-    @items = {}
+    @items = []
     [outfits, pieces].flatten.each do |item|
       item.images.each do |image|
-        @items[image] = item
+        @items << [image, item]
       end
     end
-    @items = @items.to_a
   end
 end
