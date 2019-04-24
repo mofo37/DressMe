@@ -8,5 +8,6 @@ class Outfit < ApplicationRecord
 
   has_many_attached :images
 
-  scope :list_order, -> {order(created_at: :desc)}
+  scope :list_order, -> { order(created_at: :desc) }
+  scope :by, ->(user) { where(user_id: user.id) }
 end
