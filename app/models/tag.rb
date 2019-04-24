@@ -5,4 +5,12 @@ class Tag < ApplicationRecord
   has_many :wishlists, through: :taggings, source: :taggable, source_type: "Wishlist"
 
   validates :name, presence: true, uniqueness: true
+
+  def outfits_by(user)
+    outfits.by(user)
+  end
+
+  def pieces_by(user)
+    pieces.by(user)
+  end
 end

@@ -5,8 +5,8 @@ class TagsController < ApplicationController
 
   def show
     @tag = Tag.find(params[:id])
-    outfits = @tag.outfits.by(current_user)
-    pieces = @tag.pieces.by(current_user)
+    outfits = @tag.outfits_by(current_user)
+    pieces = @tag.pieces_by(current_user)
 
     @items = []
     [outfits, pieces].flatten.each do |item|
